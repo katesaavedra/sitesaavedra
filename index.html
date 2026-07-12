@@ -103,7 +103,6 @@
     </div>
     <div class="hero-media">
       <img class="media-img" id="heroImg" src="uploads/медведь%20хлопушка.JPG" alt="Бэкстейдж со съёмок рекламы телефона HONOR" loading="eager" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'media-placeholder',innerHTML:'&lt;span&gt;Фото скоро появится&lt;/span&gt;'}))">
-      <div class="pattern-overlay"></div>
       <div class="fade-grad"></div>
       <div class="hero-caption">Бэкстейдж со съёмок рекламы телефона HONOR</div>
     </div>
@@ -119,7 +118,6 @@
   <video class="media-video" id="showreelVideo" autoplay loop muted playsinline preload="auto">
     <source src="uploads/%D0%A8%D0%BE%D1%83%D1%80%D0%B8%D0%BB_%D0%9A%D0%B0%D1%82%D1%8F_%D0%BD%D0%BE%D0%B2%D1%8B%D0%B9.mp4">
   </video>
-  <div class="pattern-overlay"></div>
   <div class="fade-grad"></div>
   <div class="showreel-title">Шоурил</div>
   <div class="showreel-filename">Шоурил_Катя_новый.mp4</div>
@@ -554,9 +552,6 @@
       ph.appendChild(span);
       frag.appendChild(ph);
     }
-    var pattern = document.createElement('div');
-    pattern.className = 'pattern-overlay';
-    frag.appendChild(pattern);
     return frag;
   }
 
@@ -699,9 +694,6 @@
       ph.innerHTML = '<span>Видео скоро появится</span>';
       modalMedia.appendChild(ph);
     }
-    var pattern = document.createElement('div');
-    pattern.className = 'pattern-overlay';
-    modalMedia.appendChild(pattern);
     if (work.external) {
       var a = document.createElement('a');
       a.className = 'modal-external';
