@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://katesaavedra.github.io/sitesaavedra/sitemap.xml
