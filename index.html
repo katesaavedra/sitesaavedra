@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Екатерина Сааведра — режиссёр и сценарист</title>
+<meta name="description" content="Портфолио режиссёра и сценариста Екатерины Сааведры: фильмы, клипы, реклама и сценарии.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --accent:#2a5fa5;
+    --accent-soft:rgba(42,95,165,0.16);
+    --accent-soft2:rgba(42,95,165,0.55);
+    --accent-border:rgba(42,95,165,0.5);
+    --accent-glow:rgba(42,95,165,0.45);
+    --ink:#f4f2ee;
+    --bg:#0a0a0a;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family:'Manrope',sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  ::selection { background: rgba(42,95,165,0.5); color: var(--ink); }
+  h1,h2 { font-family:'Cormorant Garamond',serif; font-weight:600; margin:0; }
+  p { margin: 0; }
+  button { font-family: inherit; border: none; background: none; cursor: pointer; color: inherit; }
+  ul { margin:0; padding:0; list-style:none; }
+
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes bounceDown { 0%,100% { transform: translateX(-50%) translateY(0); opacity: 0.7; } 50% { transform: translateX(-50%) translateY(10px); opacity: 1; } }
+  .fade-up { animation: fadeInUp 0.9s cubic-bezier(0.22,1,0.36,1) both; }
+
+  .pattern-overlay { position:absolute; inset:0; pointer-events:none; background: repeating-linear-gradient(135deg, rgba(244,242,238,0.05) 0px, rgba(244,242,238,0.05) 2px, transparent 2px, transparent 14px); }
+  .media-placeholder { position:absolute; inset:0; background-color:#141414; display:flex; align-items:center; justify-content:center; }
+  .media-placeholder span { font-size:11px; letter-spacing:0.04em; color:rgba(244,242,238,0.35); text-align:center; padding: 0 16px; }
+  img.media-img, video.media-video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+
+  /* NAV */
+  nav.site-nav {
+    position:fixed; top:0; left:0; right:0; z-index:1000;
+    display:flex; align-items:center; gap:clamp(16px,3vw,40px);
+    padding:16px clamp(20px,4vw,48px);
+    background:rgba(8,8,8,0.72); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+    border-bottom:1px solid rgba(244,242,238,0.08);
+    transition:transform 0.45s cubic-bezier(0.22,1,0.36,1);
+  }
+  nav.site-nav.hidden { transform: translateY(-100%); }
+  .nav-links { display:flex; gap:clamp(14px,2.4vw,32px); overflow-x:auto; white-space:nowrap; flex:1; min-width:0; scrollbar-width:none; }
+  .nav-links::-webkit-scrollbar { display:none; }
+  .nav-link { font-size:13px; letter-spacing:0.04em; color:rgba(244,242,238,0.72); cursor:pointer; transition:color 0.25s ease; flex-shrink:0; }
+  .nav-link:hover { color:var(--ink); }
+  .btn-accent {
+    flex-shrink:0; background:var(--accent); color:var(--ink); border-radius:100px; padding:11px 24px;
+    font-size:13px; font-weight:600; cursor:pointer;
+    box-shadow:0 0 0 1px var(--accent-border), 0 4px 24px var(--accent-glow);
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .btn-accent:hover { transform:translateY(-1px); box-shadow:0 0 0 1px var(--accent-border), 0 8px 32px var(--accent-glow); }
+  .btn-accent.lg { padding:17px 38px; font-size:15px; box-shadow:0 0 0 1px var(--accent-border), 0 8px 40px var(--accent-glow); }
+  .btn-accent.lg:hover { transform:translateY(-2px) scale(1.02); box-shadow:0 0 0 1px var(--accent-border), 0 14px 54px var(--accent-glow); }
+
+  /* HERO */
+  #hero { position:relative; min-height:100vh; display:flex; align-items:stretch; padding-top:88px; overflow:hidden; }
+  .hero-inner { position:relative; z-index:1; display:flex; flex-wrap:wrap; width:100%; }
+  .hero-text { flex:1 1 480px; display:flex; flex-direction:column; justify-content:center; gap:clamp(20px,3vw,32px); padding:40px clamp(20px,5vw,72px) 96px; }
+  .hero-text h1 { font-size:clamp(44px,7vw,92px); line-height:0.98; letter-spacing:-0.01em; }
+  .hero-maiden { font-size:14px; color:rgba(244,242,238,0.4); margin-top:14px; letter-spacing:0.02em; }
+  .role-pills { display:flex; gap:14px; flex-wrap:wrap; }
+  .role-pill { font-family:'Cormorant Garamond',serif; font-size:clamp(18px,2vw,24px); font-weight:600; border:1px solid rgba(244,242,238,0.25); border-radius:100px; padding:10px 26px; background:rgba(244,242,238,0.04); }
+  .role-pill.accent { border:1px solid var(--accent-border); background:var(--accent-soft); }
+  .tag-row { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:16px; }
+  .tag { font-size:12px; letter-spacing:0.03em; color:rgba(244,242,238,0.75); border:1px solid rgba(244,242,238,0.16); border-radius:100px; padding:7px 16px; }
+  .hero-desc { font-size:14px; line-height:1.7; color:rgba(244,242,238,0.55); max-width:440px; }
+  .stats-row { display:flex; gap:clamp(24px,4vw,48px); flex-wrap:wrap; padding-top:8px; border-top:1px solid rgba(244,242,238,0.1); }
+  .stat-num { font-family:'Cormorant Garamond',serif; font-size:clamp(32px,3vw,44px); font-weight:600; line-height:1; }
+  .stat-label { font-size:12px; color:rgba(244,242,238,0.5); margin-top:6px; max-width:110px; line-height:1.4; }
+  .hero-media { flex:1 1 420px; position:relative; min-height:420px; overflow:hidden; }
+  .hero-media .fade-grad { position:absolute; inset:0; background:linear-gradient(0deg, rgba(6,6,6,0.6) 0%, transparent 30%); }
+  .hero-caption { position:absolute; bottom:24px; right:24px; font-size:11px; color:rgba(244,242,238,0.55); text-align:right; max-width:200px; line-height:1.5; background:rgba(6,6,6,0.35); padding:8px 12px; border-radius:4px; }
+  .scroll-hint { position:absolute; bottom:14px; left:50%; display:flex; flex-direction:column; align-items:center; gap:6px; animation:bounceDown 2.4s ease-in-out infinite; z-index:2; }
+  .scroll-hint span { font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(244,242,238,0.4); }
+  .scroll-hint .line { width:1px; height:20px; background:linear-gradient(180deg, rgba(244,242,238,0.5), transparent); }
+
+  /* SHOWREEL */
+  #showreel { position:relative; width:100%; height:100vh; background:#000; overflow:hidden; }
+  #showreel .fade-grad { position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.5) 0%, transparent 20%, transparent 78%, rgba(0,0,0,0.6) 100%); pointer-events:none; }
+  .showreel-title { position:absolute; top:clamp(24px,5vh,64px); left:clamp(20px,5vw,64px); font-size:clamp(32px,5vw,56px); }
+  .showreel-filename { position:absolute; bottom:clamp(24px,5vh,64px); left:clamp(20px,5vw,64px); font-family:Menlo,Consolas,monospace; font-size:11px; color:rgba(244,242,238,0.4); letter-spacing:0.02em; }
+  .showreel-sound {
+    position:absolute; bottom:clamp(24px,5vh,64px); right:clamp(20px,5vw,64px);
+    width:52px; height:52px; border-radius:50%; border:1px solid rgba(244,242,238,0.35);
+    background:rgba(10,10,10,0.5); backdrop-filter:blur(8px); color:var(--ink); font-size:18px; display:flex; align-items:center; justify-content:center;
+  }
+  .showreel-sound:hover { border-color:var(--accent); background:var(--accent-soft); }
+
+  /* WORKS */
+  section { padding:clamp(70px,10vw,140px) clamp(20px,5vw,72px); max-width:1400px; margin:0 auto; }
+  .section-sub { color:rgba(244,242,238,0.45); font-size:14px; margin:0 0 40px; }
+  .filters { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:40px; }
+  .filter-btn { font-size:13px; padding:9px 20px; border-radius:100px; cursor:pointer; transition:all 0.25s ease; background:transparent; color:rgba(244,242,238,0.6); border:1px solid rgba(244,242,238,0.16); }
+  .filter-btn.active { background:var(--accent); color:var(--ink); border-color:var(--accent-border); }
+  .works-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:28px; }
+  .work-card { background:#111113; border-radius:6px; overflow:hidden; border:1px solid rgba(244,242,238,0.08); cursor:pointer; transition:transform 0.4s cubic-bezier(0.22,1,0.36,1), border-color 0.4s ease; }
+  .work-card:hover { transform:translateY(-6px); border-color:rgba(244,242,238,0.22); }
+  .work-media { position:relative; aspect-ratio:16/9; overflow:hidden; background:#141414; }
+  .work-media .shade { position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.55) 0%, transparent 35%); pointer-events:none; }
+  .work-heading { position:absolute; top:16px; left:16px; right:16px; pointer-events:none; }
+  .work-heading .title { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; text-shadow:0 2px 14px rgba(0,0,0,0.9); }
+  .work-heading .year { font-size:12px; color:rgba(244,242,238,0.65); letter-spacing:0.05em; margin-top:2px; text-shadow:0 2px 10px rgba(0,0,0,0.9); }
+  .play-btn { position:absolute; bottom:14px; right:14px; width:42px; height:42px; border-radius:50%; border:1px solid rgba(244,242,238,0.4); background:rgba(10,10,10,0.55); backdrop-filter:blur(6px); display:flex; align-items:center; justify-content:center; color:var(--ink); font-size:13px; padding-left:3px; }
+  .play-btn:hover { background:var(--accent); border-color:var(--accent); }
+  .work-body { padding:20px 22px 24px; }
+  .work-tags { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px; }
+  .work-tag { font-size:11px; letter-spacing:0.05em; text-transform:uppercase; color:rgba(244,242,238,0.75); border:1px solid rgba(244,242,238,0.18); border-radius:100px; padding:5px 12px; }
+  .work-badge { font-size:11px; color:var(--ink); background:var(--accent-soft); border:1px solid var(--accent-border); border-radius:100px; padding:5px 12px; }
+  .work-views { font-size:11px; color:rgba(244,242,238,0.5); border:1px solid rgba(244,242,238,0.1); border-radius:100px; padding:5px 12px; }
+  .work-desc { font-size:14px; line-height:1.6; color:rgba(244,242,238,0.5); }
+
+  /* MODAL */
+  .modal-overlay { position:fixed; inset:0; background:rgba(5,5,5,0.9); backdrop-filter:blur(8px); z-index:3000; display:none; align-items:center; justify-content:center; padding:clamp(16px,4vw,48px); }
+  .modal-overlay.open { display:flex; }
+  .modal-box { background:#131315; border:1px solid rgba(244,242,238,0.14); border-radius:8px; max-width:1160px; width:100%; max-height:88vh; display:flex; flex-wrap:wrap; overflow:hidden; position:relative; }
+  .modal-close { position:absolute; top:16px; right:16px; width:38px; height:38px; border-radius:50%; background:rgba(10,10,10,0.6); border:1px solid rgba(244,242,238,0.2); color:var(--ink); font-size:20px; z-index:5; line-height:1; display:flex; align-items:center; justify-content:center; }
+  .modal-media { flex:1 1 540px; position:relative; background:#0f0f10; min-height:340px; }
+  .modal-external { position:absolute; bottom:20px; left:20px; font-size:13px; background:rgba(10,10,10,0.7); border:1px solid rgba(244,242,238,0.3); border-radius:100px; padding:10px 18px; backdrop-filter:blur(6px); z-index:2; }
+  .modal-external:hover { border-color:var(--accent); }
+  .modal-info { flex:1 1 380px; padding:clamp(28px,4vw,48px); overflow-y:auto; max-height:88vh; }
+  .modal-info .title { font-family:'Cormorant Garamond',serif; font-size:clamp(26px,3vw,36px); font-weight:600; margin-bottom:4px; }
+  .modal-info .year { font-size:13px; color:rgba(244,242,238,0.45); margin-bottom:18px; }
+  .modal-info .role-label { font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); margin-bottom:14px; font-weight:600; }
+  .modal-info .role-list { display:flex; flex-direction:column; gap:12px; }
+  .modal-info .role-list li { font-size:14px; line-height:1.6; color:rgba(244,242,238,0.7); padding-left:18px; position:relative; }
+  .modal-info .role-list li::before { content:''; position:absolute; left:0; top:9px; width:6px; height:1px; background:var(--accent); }
+
+  /* EXPERIENCE */
+  .timeline { position:relative; margin-top: 64px; }
+  .timeline-rail { position:absolute; left:50%; top:6px; bottom:6px; width:1px; background:rgba(244,242,238,0.15); transform:translateX(-50%); }
+  .timeline-row { display:flex; align-items:center; position:relative; margin-bottom:64px; }
+  .timeline-side { flex:1; display:flex; }
+  .timeline-side.left { justify-content:flex-end; }
+  .timeline-side.right { justify-content:flex-start; }
+  .timeline-card { display:flex; align-items:center; gap:18px; }
+  .timeline-side.left .timeline-card { padding-right:26px; }
+  .timeline-side.right .timeline-card { padding-left:26px; }
+  .timeline-badge { position:relative; width:96px; height:96px; flex-shrink:0; }
+  .timeline-badge .glow { position:absolute; bottom:-10px; width:60px; height:60px; border-radius:50%; background:var(--accent-soft2); }
+  .timeline-side.left .timeline-badge .glow { right:-10px; }
+  .timeline-side.right .timeline-badge .glow { left:-10px; }
+  .timeline-badge .icon { position:relative; width:96px; height:96px; z-index:1; border-radius:50%; background:#16181d; border:1px solid rgba(244,242,238,0.12); display:flex; align-items:center; justify-content:center; color:rgba(244,242,238,0.5); }
+  .timeline-text { max-width:210px; }
+  .timeline-side.left .timeline-text { text-align:right; }
+  .timeline-side.right .timeline-text { text-align:left; }
+  .timeline-year { font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:600; color:var(--accent); margin-bottom:8px; }
+  .timeline-items { display:flex; flex-direction:column; gap:6px; }
+  .timeline-items li { font-size:12.5px; line-height:1.5; color:rgba(244,242,238,0.58); }
+  .timeline-dot { width:14px; height:14px; border-radius:50%; background:var(--accent); flex-shrink:0; box-shadow:0 0 0 5px #0a0a0a, 0 0 0 6px rgba(244,242,238,0.15); z-index:1; }
+
+  /* EDUCATION */
+  .edu-row { display:flex; gap:clamp(24px,4vw,64px); flex-wrap:wrap; margin-bottom:80px; }
+  .edu-card { display:flex; flex-direction:column; align-items:flex-start; gap:14px; max-width:280px; }
+  .edu-badge { width:88px; height:88px; border-radius:50%; background:#16181d; border:1px solid rgba(244,242,238,0.14); display:flex; align-items:center; justify-content:center; font-family:'Cormorant Garamond',serif; font-weight:700; font-size:18px; color:rgba(244,242,238,0.6); }
+  .edu-years { font-size:13px; color:rgba(244,242,238,0.45); letter-spacing:0.03em; }
+  .edu-name { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; line-height:1.25; }
+  .edu-detail { font-size:13px; color:rgba(244,242,238,0.5); line-height:1.5; }
+  .edu-link { font-size:12px; color:var(--accent); border-bottom:1px solid var(--accent-border); padding-bottom:1px; }
+  .skills-block { display:flex; flex-direction:column; gap:40px; }
+  .skills-label { font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(244,242,238,0.45); margin-bottom:16px; }
+  .skills-wrap { display:flex; flex-wrap:wrap; gap:10px; }
+  .skill-pill { display:inline-flex; align-items:center; gap:9px; font-size:14px; padding:10px 20px 10px 16px; border-radius:100px; background:var(--accent-soft); border:1px solid var(--accent-border); }
+  .skill-pill.secondary { gap:8px; font-size:13px; padding:8px 16px 8px 13px; color:rgba(244,242,238,0.6); border:1px solid rgba(244,242,238,0.14); background:none; }
+  .soft-skills { font-family:'Cormorant Garamond',serif; font-size:clamp(19px,2.2vw,27px); font-weight:500; line-height:1.8; color:rgba(244,242,238,0.5); max-width:820px; }
+  .soft-skills .dot { color:var(--accent); padding:0 14px; }
+
+  /* GALLERY */
+  #gallery { padding-left:0; padding-right:0; }
+  #gallery h2 { padding:0 clamp(20px,5vw,72px); margin-bottom:40px; }
+  .gallery-wrap { position:relative; }
+  .gallery-track { display:flex; gap:16px; overflow-x:auto; scroll-snap-type:x mandatory; padding:0 clamp(20px,5vw,72px) 12px; scrollbar-width:none; }
+  .gallery-track::-webkit-scrollbar { display:none; }
+  .gallery-item { flex:0 0 clamp(220px,30vw,340px); aspect-ratio:4/5; position:relative; border-radius:6px; overflow:hidden; scroll-snap-align:start; background:#141414; }
+  .gallery-item .shade { position:absolute; inset:0; background:linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.75) 100%); pointer-events:none; }
+  .gallery-caption { position:absolute; bottom:10px; left:12px; right:12px; font-size:11px; color:rgba(244,242,238,0.75); line-height:1.4; pointer-events:none; }
+  .gallery-nav { position:absolute; top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:50%; background:rgba(10,10,10,0.6); border:1px solid rgba(244,242,238,0.25); color:var(--ink); font-size:18px; backdrop-filter:blur(6px); display:flex; align-items:center; justify-content:center; }
+  .gallery-nav:hover { border-color:var(--accent); }
+  .gallery-nav.left { left:8px; }
+  .gallery-nav.right { right:8px; }
+
+  /* ABOUT */
+  #about { max-width:760px; }
+  .about-clip { position:relative; max-height:260px; overflow:hidden; transition:max-height 0.6s cubic-bezier(0.22,1,0.36,1); }
+  .about-clip.expanded { max-height:3000px; }
+  .about-text { display:flex; flex-direction:column; gap:22px; font-size:16px; line-height:1.8; color:rgba(244,242,238,0.68); }
+  .about-fade { position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(180deg, transparent, #0a0a0a); pointer-events:none; }
+  .about-clip.expanded .about-fade { display:none; }
+  .about-toggle { margin-top:20px; color:var(--accent); font-size:14px; font-weight:600; letter-spacing:0.02em; padding-bottom:2px; border-bottom:1px solid var(--accent-border); display:inline-block; }
+
+  /* CONTACT */
+  #contact { max-width:1100px; }
+  .contact-title { display:inline-block; font-family:'Cormorant Garamond',serif; font-size:clamp(40px,6vw,80px); font-weight:600; margin:0 0 16px; transition:color 0.25s ease; }
+  .contact-title:hover { color:var(--accent); }
+  .contact-role { font-size:16px; color:rgba(244,242,238,0.6); margin-bottom:10px; }
+  .contact-tags { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:56px; }
+  .contact-tag { font-size:12px; padding:7px 16px; border-radius:100px; border:1px solid rgba(244,242,238,0.16); color:rgba(244,242,238,0.6); }
+  .contact-tag.accent { background:var(--accent-soft); border:1px solid var(--accent-border); }
+  .contact-grid { display:flex; flex-wrap:wrap; gap:clamp(40px,6vw,100px); }
+  .contact-info { flex:1 1 280px; display:flex; flex-direction:column; gap:22px; }
+  .contact-info a, .contact-info div { display:block; transition:color 0.25s ease; }
+  .contact-info a:hover { color:var(--accent); }
+  .contact-label { font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(244,242,238,0.4); margin-bottom:4px; }
+  .contact-value { font-size:18px; }
+  .contact-form-wrap { flex:1 1 360px; }
+  .contact-form { display:flex; flex-direction:column; gap:16px; }
+  .contact-form label { font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(244,242,238,0.4); display:block; margin-bottom:8px; }
+  .contact-form input, .contact-form textarea {
+    width:100%; background:rgba(244,242,238,0.04); border:1px solid rgba(244,242,238,0.16); border-radius:4px;
+    padding:14px 16px; color:var(--ink); font-size:15px; font-family:'Manrope',sans-serif;
+  }
+  .contact-form textarea { resize:vertical; }
+  .contact-submit { align-self:flex-start; background:var(--accent); color:var(--ink); border-radius:100px; padding:15px 34px; font-size:15px; font-weight:600; box-shadow:0 0 0 1px var(--accent-border), 0 6px 30px var(--accent-glow); transition:transform 0.25s ease; }
+  .contact-submit:hover { transform:translateY(-2px); }
+  .contact-thanks { font-size:16px; line-height:1.6; color:rgba(244,242,238,0.7); }
+  .contact-footer { margin-top:80px; padding-top:24px; border-top:1px solid rgba(244,242,238,0.08); font-size:12px; color:rgba(244,242,238,0.3); }
+
+  [data-reveal] { opacity:0; transform:translateY(26px); transition:opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1); }
+  [data-reveal].in-view { opacity:1; transform:translateY(0); }
+</style>
+</head>
+<body>
+
+<nav class="site-nav" id="siteNav">
+  <div class="nav-links" id="navLinks"></div>
+  <button class="btn-accent" data-scroll-to="contact">Связаться</button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="fade-up">
+        <h1>Екатерина<br/>Сааведра</h1>
+        <div class="hero-maiden">Девичья фамилия — Попова</div>
+      </div>
+      <div class="role-pills fade-up" style="animation-delay:0.1s;">
+        <span class="role-pill">Режиссёр</span>
+        <span class="role-pill accent">Сценарист</span>
+      </div>
+      <div class="fade-up" style="animation-delay:0.2s;">
+        <div class="tag-row">
+          <span class="tag">Кино</span>
+          <span class="tag">Клипы</span>
+          <span class="tag">Программы</span>
+          <span class="tag">Ролики для соцсетей</span>
+        </div>
+        <p class="hero-desc">Умею укладываться в любой бюджет, соблюдать тайминги и защищать идеи перед клиентом</p>
+      </div>
+      <div class="fade-up" style="animation-delay:0.3s;">
+        <button class="btn-accent lg" data-scroll-to="works">Смотреть работы</button>
+      </div>
+      <div class="stats-row fade-up" style="animation-delay:0.4s;">
+        <div><div class="stat-num">2</div><div class="stat-label">полнометражных сценария</div></div>
+        <div><div class="stat-num">2</div><div class="stat-label">рекламы</div></div>
+        <div><div class="stat-num">3</div><div class="stat-label">коротких метра</div></div>
+        <div><div class="stat-num">1</div><div class="stat-label">клип</div></div>
+      </div>
+    </div>
+    <div class="hero-media">
+      <img class="media-img" id="heroImg" src="uploads/медведь%20хлопушка.JPG" alt="Бэкстейдж со съёмок рекламы телефона HONOR" loading="eager" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'media-placeholder',innerHTML:'&lt;span&gt;Фото скоро появится&lt;/span&gt;'}))">
+      <div class="pattern-overlay"></div>
+      <div class="fade-grad"></div>
+      <div class="hero-caption">Бэкстейдж со съёмок рекламы телефона HONOR</div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>Листайте вниз</span>
+    <div class="line"></div>
+  </div>
+</section>
+
+<!-- SHOWREEL -->
+<section id="showreel" style="padding:0;">
+  <div class="media-placeholder">
+    <span>Шоурил скоро появится</span>
+  </div>
+  <div class="pattern-overlay"></div>
+  <div class="fade-grad"></div>
+  <div class="showreel-title">Шоурил</div>
+  <div class="showreel-filename">Шоурил_Катя_новый.mp4</div>
+</section>
+
+<!-- WORKS -->
+<section id="works">
+  <h2>Работы</h2>
+  <p class="section-sub">Фильмы, ролики и клипы, в которых я была режиссёром, сценаристом или продюсером</p>
+  <div class="filters" id="filters"></div>
+  <div class="works-grid" id="worksGrid"></div>
+</section>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="workModal">
+  <div class="modal-box" id="modalBox">
+    <button class="modal-close" id="modalClose">×</button>
+    <div class="modal-media" id="modalMedia"></div>
+    <div class="modal-info" id="modalInfo"></div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <h2>Опыт</h2>
+  <div class="timeline" id="timeline">
+    <div class="timeline-rail"></div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <h2 style="margin-bottom:56px;">Образование и навыки</h2>
+  <div class="edu-row" id="eduRow"></div>
+  <div class="skills-block">
+    <div>
+      <div class="skills-label">Навыки</div>
+      <div class="skills-wrap" id="skillsPrimary"></div>
+    </div>
+    <div>
+      <div class="skills-label">Дополнительно</div>
+      <div class="skills-wrap" id="skillsSecondary"></div>
+    </div>
+    <div>
+      <div class="skills-label">Личные качества</div>
+      <div class="soft-skills" id="skillsSoft"></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <h2>Галерея</h2>
+  <div class="gallery-wrap">
+    <div class="gallery-track" id="galleryTrack"></div>
+    <button class="gallery-nav left" id="galleryLeft">‹</button>
+    <button class="gallery-nav right" id="galleryRight">›</button>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2 style="margin-bottom:40px;">Обо мне</h2>
+  <div class="about-clip" id="aboutClip">
+    <div class="about-text">
+      <p>В 9 лет я собрала своих школьных друзей, взяла родительскую камеру и сняла трёхминутный фильм про любовь.</p>
+      <p>Сдав ЕГЭ по литературе на 100 баллов, я поступила на журфак МГУ, кафедра ТВ и радио. Там я быстро поняла, что хочу снимать не репортажи, а настоящее кино. Доучившись, я поступила во ВГИК. Там я ставила этюды, снимала фильмы и собрала свою сплочённую съёмочную команду, на которую могу всецело положиться.</p>
+      <p>Моя самая крупная работа — полнометражный фильм про Ингушетию. Я счастлива, что не испугалась, когда после написания сценария мне предложили поехать в горы к команде из 10 парней, чтобы брать интервью у пчеловода, кузнеца, мастерицы по коврам и других местных жителей, а также руководить операторской группой.</p>
+      <p>Мы вставали в 5–6 утра, ехали в горы и возвращались к 2 ночи. Но за неделю мы сняли большой и важный фильм про невероятно красивый край и сильный народ ингушей. А через несколько месяцев мы уже показывали его министру культуры, которая высоко оценила нашу работу.</p>
+      <p>Также я горжусь рекламой телефона HONOR, съёмки которой мы организовали буквально за 4 дня. Работать в лесу с медведем и дрессировщиком (ещё понять, с кем страшнее), а потом в реальном времени согласовывать кадры с клиентом из Китая — было большим приключением, не говоря уже о том, что дикие собаки съели обед съёмочной группы.</p>
+      <p>Я постоянно ищу способы пробиться на питчинги и попасть в большое игровое кино. Я написала сценарий детективной комедии, но не прошла в финал Всероссийского питчинга дебютантов. Планирую подаваться в следующем году с новой работой.</p>
+      <p>Моя вторая страсть после кино — путешествия. Горжусь тем, что погружалась с аквалангом в Иордании, ночевала в пустыне под открытым небом и спускалась со скал в полной темноте с бедуинами.</p>
+    </div>
+    <div class="about-fade"></div>
+  </div>
+  <button class="about-toggle" id="aboutToggle">Читать полностью ↓</button>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <a href="https://t.me/katrintina" target="_blank" class="contact-title">Связаться</a>
+  <div class="contact-role">Екатерина Сааведра — режиссёр и сценарист</div>
+  <div class="contact-tags">
+    <span class="contact-tag">Москва</span>
+    <span class="contact-tag accent">Готова к экспедициям</span>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <a href="tel:+79686299290">
+        <div class="contact-label">Телефон</div>
+        <div class="contact-value">+7 (968) 629-92-90</div>
+      </a>
+      <div>
+        <div class="contact-label">Город</div>
+        <div class="contact-value">Москва</div>
+      </div>
+      <a href="mailto:SaavedraKate@yandex.ru">
+        <div class="contact-label">Почта</div>
+        <div class="contact-value">SaavedraKate@yandex.ru</div>
+      </a>
+      <a href="https://t.me/katrintina" target="_blank">
+        <div class="contact-label">Telegram</div>
+        <div class="contact-value">@katrintina</div>
+      </a>
+      <a href="tel:+79686299290">
+        <div class="contact-label">Max</div>
+        <div class="contact-value">+7 (968) 629-92-90</div>
+      </a>
+    </div>
+    <div class="contact-form-wrap" id="contactFormWrap">
+      <form class="contact-form" id="contactForm">
+        <div>
+          <label for="contactPhone">Ваш телефон</label>
+          <input type="tel" id="contactPhone" placeholder="+7 (___) ___-__-__" />
+        </div>
+        <div>
+          <label for="contactMessage">Сообщение</label>
+          <textarea id="contactMessage" placeholder="Расскажите о проекте" rows="4"></textarea>
+        </div>
+        <button type="submit" class="contact-submit">Отправить</button>
+      </form>
+    </div>
+  </div>
+  <div class="contact-footer">© 2026 Екатерина Сааведра</div>
+</section>
+
+<script>
+(function(){
+  "use strict";
+
+  var WORKS = [
+    { id:'ingushetia', title:'«Вехи Ингушетии»', year:'2024', tags:['Полный метр'],
+      desc:'Документально-игровой фильм от Минкульта Ингушетии про красоту, традиции и силу народа ингушей.',
+      media:'photo', photoSrc:'uploads/ингушетия 6.JPG', badge:'Золотая башня — гран-при', external:null,
+      role:[
+        'Написала сценарий фильма в таблице',
+        'Продумала образы каждого героя и очерёдность их появления',
+        'Прописала вопросы каждому герою',
+        'Помогала продюсеру составить КПП',
+        'На площадке брала интервью у всех героев',
+        'Частично брала на себя функции режиссёра и указывала оператору, что нужно снять',
+        'Самостоятельно собрала черновой фильм целиком в Adobe Pr. Pro',
+        'На пару с монтажёром доработала фильм до итогового результата',
+        'Ставила ТЗ на визуальные эффекты',
+      ]},
+    { id:'honor', title:'«Проверено Россией»', year:'2025', tags:['Реклама'],
+      desc:'Рекламный ролик с участием настоящего медведя.',
+      media:'video', views:'1,7 тыс. просмотров · YouTube', poster:'uploads/медведь хлопушка.JPG',
+      role:[
+        'Составила смету ролика, уложившись в скромный бюджет клиента',
+        'Собрала команду из оператора, гафера, фокус-пуллера, второго режиссёра, монтажёра и хэлперов',
+        'Режиссировала съёмку ролика на площадке с участием живого медведя',
+        'Согласовывала с клиентом все кадры в «прямом эфире» по плейбэку',
+        'На пару с монтажёром собрали и согласовали с клиентом итоговый ролик',
+      ]},
+    { id:'ballerina', title:'«Балерина»', year:'2026', tags:['Клип'],
+      desc:'Сняла и спродюсировала клип группы «Завтраккусто».',
+      media:'video', poster:'uploads/на сцене завтраккусто.JPG',
+      role:[
+        'Связалась с группой и предложила снять клип',
+        'Спродюсировала весь проект',
+        'Придумала концепцию ролика и защитила её перед группой',
+        'Собрала команду из оператора, гафера, второго режиссёра, монтажёра, художника по раскадровке и хэлперов',
+        'Составила смету клипа под бюджет группы',
+        'Нашла профессиональную балерину, провела репетиции',
+        'Подготовила режиссёрский сценарий',
+        'Режиссировала съёмки',
+        'Вместе с монтажёром собрала и сдала итоговый клип',
+      ]},
+    { id:'shainsky', title:'«Шаинский фест»', year:'2025', tags:['Концерт'],
+      desc:'Написала сценарий для финального концерта фестиваля в Кремлёвском дворце.',
+      media:'video',
+      role:[
+        'Придумала последовательность выхода артистов',
+        'Написала текст для ведущего мероприятия Александра Олешко',
+        'Продумала художественную концепцию открывающего номера — «Песню крокодила Гены» исполнял Вячеслав Шаинский на фоне танцующего ансамбля',
+        'Защитила и утвердила сценарий перед режиссёром Кремлёвского дворца Мариной Александровной Худиной',
+        'Во время концерта помогала ведущему и следила за сценарием',
+      ]},
+    { id:'gannushkin', title:'«250-летие больницы Ганнушкина»', year:'2025', tags:['Полный метр'],
+      desc:'Сценарий корпоративного фильма по заказу больницы. Производство приостановлено по административным причинам.',
+      media:'video',
+      role:[
+        'Создание режиссёрского сценария документального фильма с игровыми элементами, инфографикой и архивными кадрами',
+        'Очная защита концепции и сценария перед главными врачами и директором больницы',
+        'Интервьюирование всех героев (врачей) во время съёмок',
+        'Скаутинг локаций для фильма',
+        'Помощь второму режиссёру в составлении КПП',
+        'Режиссирование съёмок на площадке',
+      ]},
+    { id:'nostalgia', title:'«Ностальгия по человечеству»', year:'2024', tags:['Короткий метр'],
+      desc:'Научная фантастика про раскаяние старика за ошибку детства на фоне будущего искусственного интеллекта.',
+      media:'video', badge:'ВГИК · «Святая Анна»', videoSrc:'uploads/ностальгия 4.MP4', poster:'uploads/ностальгия 1.JPG',
+      role:[
+        'Написание литературного и режиссёрского сценариев',
+        'Составление сметы проекта',
+        'Полное продюсирование съёмок фильма',
+        'Организация экспедиции для всей команды из Москвы в Новороссийск',
+        'Удалённый поиск части команды в Новороссийске',
+        'Режиссирование съёмок',
+        'Монтаж с монтажёром',
+        'Работа с VFX-художником, постановка ТЗ',
+        'Защита фильма на «отлично» как дипломного проекта во ВГИКе',
+        'Подача фильма на фестивали',
+      ]},
+    { id:'formula', title:'«Формула жизни»', year:'2023', tags:['Документальный'],
+      desc:'Фильм-портрет про академика, учителя и участника ликвидации Чернобыльской катастрофы.',
+      media:'video', views:'1,4 тыс. просмотров · YouTube',
+      role:[
+        'Нашла контакты Николая Николаевича Острогского и договорилась с ним, родственниками, выпускниками, учениками и школой о съёмках',
+        'Написание литературного и режиссёрского сценариев',
+        'Режиссирование съёмок с оператором',
+        'Самостоятельно смонтировала фильм в Adobe Pr. Pro',
+        'Защита фильма как курсовой работы во ВГИКе',
+        'Получила множество благодарностей от мастера и учеников главного героя',
+      ]},
+    { id:'malenkie', title:'«Маленькие»', year:'2023', tags:['Короткий метр'],
+      desc:'Комедия про взросление и общажную жизнь.',
+      media:'video', views:'14 тыс. просмотров · YouTube', poster:'uploads/маленькие кадры.JPG',
+      role:[
+        'Написание литературного и режиссёрского сценариев',
+        'Составление сметы проекта',
+        'Договорилась с общежитием ГИТИСа о предоставлении комнаты для съёмок',
+        'Режиссура',
+        'Монтаж с монтажёром',
+        'Защита фильма во ВГИКе',
+      ]},
+  ];
+
+  var FILTERS = ['Все', 'Полный метр', 'Короткий метр', 'Документальный', 'Клип', 'Реклама', 'Концерт'];
+
+  var TIMELINE = [
+    { year:'2026', items:[
+      'Прохождение сценарного курса **Анны Качаловой «Трансформация»**',
+      'Съёмка клипа для группы **«Завтраккусто»**',
+      'Участница второго этапа сценарного конкурса **ArtMasters регионы**',
+      'Участница сценарного конкурса от киношколы **TheOneFilm**',
+      'Выступала на **Вечеринке питчингов Алексея Зотова**',
+      'Участница тренинга Ивана Кудрявцева **«Идеальный питчинг»**',
+      'Сняла бэкстейдж-фильм о съёмках рекламы телефона **HONOR** рекламным агентством Пикчер',
+    ]},
+    { year:'2025', items:[
+      'Сняла рекламу телефона **HONOR** с медведем',
+      'Написала сценарий полнометражного фильма **«Искусство требует жертв»** для Всероссийского питчинга дебютантов',
+      'Написала сценарий концерта **«Шаинский фест»** в Кремлёвском дворце',
+      'Написала сценарий и начала съёмки фильма к **250-летию больницы Ганнушкина**',
+      'Фильм **«Вехи Ингушетии»** взял главный приз фестиваля **«Золотая башня»**',
+    ]},
+    { year:'2024', items:[
+      'Написала сценарий полнометражного фильма **«Вехи Ингушетии»** при поддержке министерства культуры региона',
+      'Окончила **Высшие курсы ВГИК**, режиссёрскую мастерскую **Ю. В. Кара**',
+      'Сняла дипломный короткометражный фильм **«Ностальгия по человечеству»**',
+      'Сняла учебную рекламу **«Добрый Cola»**',
+      'Устроилась в рекламное агентство **Пикчер**',
+    ]},
+    { year:'2023', items:[
+      'Сняла два короткометражных фильма: **«Формула жизни»** (док, 1,4 тыс. просмотров) и **«Маленькие»** (14 тыс. просмотров)',
+      'Работала редактором в **Театре на Таганке**',
+    ]},
+    { year:'2022', items:[
+      'Поступила на **Высшие курсы ВГИК**',
+      'Окончила бакалавриат **МГУ**, факультет журналистики',
+      'Дипломная работа — короткометражный фильм-портрет про режиссёра из ВГИКа',
+      'Работала сценаристом и режиссёром **Института воспитания**: ролики для детей и подростков, сценарии для «Семейного часа» на **Радио Дача** и шоу «Открытые родительские собрания»',
+    ]},
+  ];
+
+  var EDUCATION = [
+    { id:'edu-vgik', years:'2022 — 2024', name:'ВГИК им. С. А. Герасимова', detail:'Высшие курсы, режиссёрская мастерская Ю. В. Кара', mono:'ВГИК' },
+    { id:'edu-msu', years:'2018 — 2022', name:'МГУ им. М. В. Ломоносова', detail:'Бакалавриат, факультет журналистики', mono:'МГУ' },
+  ];
+
+  var SKILLS_PRIMARY = ['Режиссура', 'Монтаж', 'Драматургия', 'Продюсирование', 'Работа с актёрами', 'Режиссёрская экспликация', 'Работа с кинодокументами и таблицами'];
+  var SKILLS_SECONDARY = ['Копирайтинг', 'Английский язык C1', 'Водительские права B', 'Презентации'];
+  var SKILLS_SOFT = ['Тайм-менеджмент', 'Коммуникация', 'Высокая ответственность', 'Работа на результат', 'Стрессоустойчивость', 'Выносливость', 'Уравновешенность'];
+
+  var GALLERY_RAW = [
+    { type:'video', caption:'Бэкстейдж «Вехи Ингушетии»' },
+    { type:'video', caption:'Бэкстейдж «Вехи Ингушетии»' },
+    { type:'video', caption:'Бэкстейдж «Вехи Ингушетии»' },
+    { type:'photo', caption:'Бэкстейдж «Вехи Ингушетии»', src:'uploads/ингушетия 5.JPG' },
+    { type:'video', caption:'Бэкстейдж «Вехи Ингушетии»' },
+    { type:'photo', caption:'Съёмочная команда «Вехи Ингушетии»', src:'uploads/ингушетия 6.JPG' },
+    { type:'photo', caption:'Монтаж «Вехи Ингушетии»', src:'uploads/ингушетия монтаж.JPG' },
+    { type:'video', caption:'Бэкстейдж рекламы HONOR' },
+    { type:'video', caption:'Бэкстейдж рекламы HONOR' },
+    { type:'photo', caption:'Бэкстейдж рекламы HONOR', src:'uploads/медведь хлопушка.JPG' },
+    { type:'video', caption:'Бэкстейдж рекламы HONOR' },
+    { type:'photo', caption:'Бэкстейдж клипа «Балерина»', src:'uploads/клип 2.JPG' },
+    { type:'photo', caption:'Бэкстейдж клипа «Балерина»', src:'uploads/клип 5.JPG' },
+    { type:'photo', caption:'Бэкстейдж клипа «Балерина»', src:'uploads/клип 8.JPG' },
+    { type:'photo', caption:'Бэкстейдж клипа «Балерина»', src:'uploads/Клип 11.JPG' },
+    { type:'photo', caption:'Бэкстейдж клипа «Балерина»', src:'uploads/клип 10.JPG' },
+    { type:'photo', caption:'Бэкстейдж клипа «Балерина»', src:'uploads/клип 9.JPG' },
+    { type:'photo', caption:'Бэкстейдж клипа «Балерина»', src:'uploads/клип 1.JPG' },
+    { type:'photo', caption:'Бэкстейдж клипа «Балерина»', src:'uploads/клип 3.JPG' },
+    { type:'photo', caption:'Бэкстейдж клипа «Балерина»', src:'uploads/клип 4.JPG' },
+    { type:'photo', caption:'Бэкстейдж клипа «Балерина»', src:'uploads/клип 7.JPG' },
+    { type:'photo', caption:'Объявляю выход клипа на концерте «Завтраккусто» в Китайском лётчике', src:'uploads/на сцене завтраккусто.JPG' },
+    { type:'video', caption:'Бэкстейдж фильма «Ностальгия по человечеству»', videoSrc:'uploads/ностальгия 4.MP4' },
+    { type:'photo', caption:'Бэкстейдж фильма «Ностальгия по человечеству»', src:'uploads/ностальгия 2.JPG' },
+    { type:'video', caption:'Раскадровка фильма «Ностальгия по человечеству»' },
+    { type:'photo', caption:'Выступление на фестивале ВГИК с фильмом «Ностальгия по человечеству»', src:'uploads/ностальгия 1.JPG' },
+    { type:'photo', caption:'Письмо о прохождении второго этапа ArtMasters', src:'uploads/прошла артмастерс.PNG' },
+    { type:'video', caption:'Бэкстейдж постановки «Шаинский фест»' },
+    { type:'video', caption:'За кулисами «Шаинский фест»' },
+    { type:'video', caption:'За кулисами «Шаинский фест»' },
+    { type:'video', caption:'За кулисами «Шаинский фест»' },
+    { type:'photo', caption:'Кадры из рекламного ролика «Сиэрви»', src:'uploads/реклама кадры.JPG' },
+    { type:'photo', caption:'Кадры из фильма «Маленькие»', src:'uploads/маленькие кадры.JPG' },
+    { type:'photo', caption:'Кадры из фильма «Ностальгия по человечеству»', src:'uploads/ностальгия кадры.JPG' },
+    { type:'video', caption:'Бэкстейдж съёмки для агентства Пикчер' },
+    { type:'photo', caption:'Питчинг фильма на Вечеринке питчингов', src:'uploads/вечеринка питчингов.JPG' },
+    { type:'video', caption:'Имя в титрах «Вехи Ингушетии»' },
+    { type:'photo', caption:'Постер сценария «Искусство требует жертв» на кинорынке', src:'uploads/искусство требует жертв постер.PNG' },
+    { type:'photo', caption:'Приз фестиваля «Золотая башня»', src:'uploads/золотая башня приз.JPG' },
+  ].map(function(g, i){ g.id = 'g' + (i+1); return g; });
+
+  function encPath(p){ return p ? p.split('/').map(encodeURIComponent).join('/') : p; }
+
+  function parseBoldHtml(text){
+    var parts = text.split(/\*\*(.+?)\*\*/g);
+    return parts.map(function(s, i){
+      if (s === '') return '';
+      var esc = s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      return i % 2 === 1 ? '<strong style="font-weight:700;">'+esc+'</strong>' : '<span style="font-weight:400;">'+esc+'</span>';
+    }).join('');
+  }
+
+  /* ---------- NAV ---------- */
+  var NAV_DEFS = [
+    { id:'showreel', label:'Шоурил' },
+    { id:'works', label:'Работы' },
+    { id:'experience', label:'Опыт' },
+    { id:'education', label:'Образование' },
+    { id:'about', label:'Обо мне' },
+    { id:'gallery', label:'Галерея' },
+  ];
+  var navLinks = document.getElementById('navLinks');
+  NAV_DEFS.forEach(function(n){
+    var span = document.createElement('span');
+    span.className = 'nav-link';
+    span.textContent = n.label;
+    span.addEventListener('click', function(){ scrollToId(n.id); });
+    navLinks.appendChild(span);
+  });
+  document.querySelectorAll('[data-scroll-to]').forEach(function(el){
+    el.addEventListener('click', function(){ scrollToId(el.getAttribute('data-scroll-to')); });
+  });
+  function scrollToId(id){
+    var el = document.getElementById(id);
+    if (!el) return;
+    var y = el.getBoundingClientRect().top + window.scrollY - 90;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }
+
+  var siteNav = document.getElementById('siteNav');
+  var lastScrollY = 0, ticking = false;
+  function handleScroll(){
+    var y = window.scrollY;
+    var goingDown = y > lastScrollY + 4;
+    var goingUp = y < lastScrollY - 4;
+    if (y < 80) siteNav.classList.remove('hidden');
+    else if (goingDown) siteNav.classList.add('hidden');
+    else if (goingUp) siteNav.classList.remove('hidden');
+    lastScrollY = y;
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if (!ticking) { window.requestAnimationFrame(handleScroll); ticking = true; }
+  }, { passive:true });
+
+  /* ---------- Lazy media (IntersectionObserver) ---------- */
+  var mediaObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) {
+        mediaObserver.unobserve(entry.target);
+        var video = entry.target.querySelector('video[data-autoplay]');
+        if (video) video.load();
+      }
+    });
+  }, { rootMargin:'250px 0px' });
+
+  function buildMediaFrame(opts){
+    // opts: { photoSrc, videoSrc, alt, placeholderText }
+    var frag = document.createDocumentFragment();
+    if (opts.videoSrc) {
+      var v = document.createElement('video');
+      v.className = 'media-video';
+      v.muted = true; v.loop = true; v.playsInline = true; v.preload = 'none';
+      v.setAttribute('data-autoplay','1');
+      var source = document.createElement('source');
+      source.src = encPath(opts.videoSrc);
+      v.appendChild(source);
+      frag.appendChild(v);
+    } else if (opts.photoSrc) {
+      var img = document.createElement('img');
+      img.className = 'media-img';
+      img.loading = 'lazy';
+      img.alt = opts.alt || '';
+      img.addEventListener('error', function(){
+        var ph = document.createElement('div');
+        ph.className = 'media-placeholder';
+        var span = document.createElement('span');
+        span.textContent = opts.placeholderText || 'Фото скоро появится';
+        ph.appendChild(span);
+        img.replaceWith(ph);
+      });
+      img.src = encPath(opts.photoSrc);
+      frag.appendChild(img);
+    } else {
+      var ph = document.createElement('div');
+      ph.className = 'media-placeholder';
+      var span = document.createElement('span');
+      span.textContent = opts.placeholderText || 'Видео скоро появится';
+      ph.appendChild(span);
+      frag.appendChild(ph);
+    }
+    var pattern = document.createElement('div');
+    pattern.className = 'pattern-overlay';
+    frag.appendChild(pattern);
+    return frag;
+  }
+
+  /* ---------- WORKS ---------- */
+  var activeFilter = 'Все';
+  var filtersEl = document.getElementById('filters');
+  var worksGrid = document.getElementById('worksGrid');
+
+  function renderFilters(){
+    filtersEl.innerHTML = '';
+    FILTERS.forEach(function(f){
+      var btn = document.createElement('button');
+      btn.className = 'filter-btn' + (f === activeFilter ? ' active' : '');
+      btn.textContent = f;
+      btn.addEventListener('click', function(){ activeFilter = f; renderFilters(); renderWorks(); });
+      filtersEl.appendChild(btn);
+    });
+  }
+
+  function renderWorks(){
+    worksGrid.innerHTML = '';
+    var list = activeFilter === 'Все' ? WORKS : WORKS.filter(function(w){ return w.tags.indexOf(activeFilter) !== -1; });
+    list.forEach(function(work){
+      var card = document.createElement('div');
+      card.className = 'work-card';
+
+      var mediaWrap = document.createElement('div');
+      mediaWrap.className = 'work-media';
+      var isVideo = work.media === 'video';
+      mediaWrap.appendChild(buildMediaFrame({
+        photoSrc: isVideo ? null : work.photoSrc,
+        videoSrc: isVideo ? work.videoSrc : null,
+        alt: work.title,
+        placeholderText: work.poster ? null : 'Видео скоро появится'
+      }));
+      if (isVideo && !work.videoSrc && work.poster) {
+        var posterImg = document.createElement('img');
+        posterImg.className = 'media-img';
+        posterImg.style.filter = 'grayscale(0.15) brightness(0.75)';
+        posterImg.loading = 'lazy';
+        posterImg.alt = work.title;
+        posterImg.addEventListener('error', function(){ posterImg.remove(); });
+        posterImg.src = encPath(work.poster);
+        mediaWrap.insertBefore(posterImg, mediaWrap.firstChild);
+      }
+      var shade = document.createElement('div');
+      shade.className = 'shade';
+      mediaWrap.appendChild(shade);
+
+      var heading = document.createElement('div');
+      heading.className = 'work-heading';
+      heading.innerHTML = '<div class="title">'+work.title+'</div><div class="year">'+work.year+'</div>';
+      mediaWrap.appendChild(heading);
+
+      if (isVideo) {
+        var playBtn = document.createElement('button');
+        playBtn.className = 'play-btn';
+        playBtn.textContent = '▶';
+        playBtn.addEventListener('click', function(e){
+          e.stopPropagation();
+          var v = mediaWrap.querySelector('video');
+          if (!v) return;
+          v.muted = false;
+          if (v.paused) v.play().catch(function(){}); else v.pause();
+        });
+        mediaWrap.appendChild(playBtn);
+      }
+
+      card.appendChild(mediaWrap);
+
+      var body = document.createElement('div');
+      body.className = 'work-body';
+      var tagsRow = document.createElement('div');
+      tagsRow.className = 'work-tags';
+      work.tags.forEach(function(t){
+        var tag = document.createElement('span');
+        tag.className = 'work-tag';
+        tag.textContent = t;
+        tagsRow.appendChild(tag);
+      });
+      if (work.views) {
+        var vv = document.createElement('span');
+        vv.className = 'work-views';
+        vv.textContent = work.views;
+        tagsRow.appendChild(vv);
+      }
+      if (work.badge) {
+        var bb = document.createElement('span');
+        bb.className = 'work-badge';
+        bb.textContent = work.badge;
+        tagsRow.appendChild(bb);
+      }
+      body.appendChild(tagsRow);
+      var desc = document.createElement('p');
+      desc.className = 'work-desc';
+      desc.textContent = work.desc;
+      body.appendChild(desc);
+      card.appendChild(body);
+
+      card.addEventListener('click', function(){ openWork(work); });
+      worksGrid.appendChild(card);
+
+      if (isVideo && work.videoSrc) {
+        var v2 = mediaWrap.querySelector('video');
+        if (v2) mediaObserver.observe(mediaWrap);
+      }
+    });
+  }
+
+  /* ---------- MODAL ---------- */
+  var modal = document.getElementById('workModal');
+  var modalBox = document.getElementById('modalBox');
+  var modalMedia = document.getElementById('modalMedia');
+  var modalInfo = document.getElementById('modalInfo');
+
+  function openWork(work){
+    modalMedia.innerHTML = '';
+    var isVideo = work.media === 'video';
+    if (isVideo && work.videoSrc) {
+      var v = document.createElement('video');
+      v.className = 'media-video';
+      v.autoplay = true; v.loop = true; v.muted = true; v.controls = true; v.playsInline = true;
+      v.src = encPath(work.videoSrc);
+      modalMedia.appendChild(v);
+    } else if (!isVideo && work.photoSrc) {
+      var img = document.createElement('img');
+      img.className = 'media-img';
+      img.alt = work.title;
+      img.addEventListener('error', function(){
+        modalMedia.innerHTML = '<div class="media-placeholder"><span>Фото скоро появится</span></div>';
+      });
+      img.src = encPath(work.photoSrc);
+      modalMedia.appendChild(img);
+    } else if (work.poster) {
+      var img2 = document.createElement('img');
+      img2.className = 'media-img';
+      img2.style.filter = 'grayscale(0.15) brightness(0.75)';
+      img2.alt = work.title;
+      img2.addEventListener('error', function(){ img2.remove(); });
+      img2.src = encPath(work.poster);
+      modalMedia.appendChild(img2);
+    } else {
+      var ph = document.createElement('div');
+      ph.className = 'media-placeholder';
+      ph.innerHTML = '<span>Видео скоро появится</span>';
+      modalMedia.appendChild(ph);
+    }
+    var pattern = document.createElement('div');
+    pattern.className = 'pattern-overlay';
+    modalMedia.appendChild(pattern);
+    if (work.external) {
+      var a = document.createElement('a');
+      a.className = 'modal-external';
+      a.href = work.external; a.target = '_blank';
+      a.textContent = 'Открыть сайт проекта →';
+      modalMedia.appendChild(a);
+    }
+
+    var rolesHtml = work.role.map(function(line){ return '<li>'+line.replace(/&/g,'&amp;').replace(/</g,'&lt;')+'</li>'; }).join('');
+    var tagsHtml = work.tags.map(function(t){ return '<span class="work-tag">'+t+'</span>'; }).join('');
+    modalInfo.innerHTML =
+      '<div class="title">'+work.title+'</div>'+
+      '<div class="year">'+work.year+'</div>'+
+      '<div class="work-tags" style="margin-bottom:24px;">'+tagsHtml+'</div>'+
+      '<div class="role-label">Моя роль</div>'+
+      '<ul class="role-list">'+rolesHtml+'</ul>';
+
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeWork(){
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+    modalMedia.innerHTML = '';
+  }
+  document.getElementById('modalClose').addEventListener('click', closeWork);
+  modal.addEventListener('click', closeWork);
+  modalBox.addEventListener('click', function(e){ e.stopPropagation(); });
+
+  /* ---------- TIMELINE ---------- */
+  var timelineEl = document.getElementById('timeline');
+  TIMELINE.forEach(function(entry, i){
+    var isLeft = i % 2 === 0;
+    var row = document.createElement('div');
+    row.className = 'timeline-row';
+
+    var sideLeft = document.createElement('div');
+    sideLeft.className = 'timeline-side left';
+    var sideRight = document.createElement('div');
+    sideRight.className = 'timeline-side right';
+
+    var itemsHtml = entry.items.map(function(t){ return '<li>'+parseBoldHtml(t)+'</li>'; }).join('');
+    var cardHtml =
+      '<div class="timeline-badge"><div class="glow"></div><div class="icon">🎬</div></div>'+
+      '<div class="timeline-text"><div class="timeline-year">'+entry.year+'</div><ul class="timeline-items">'+itemsHtml+'</ul></div>';
+    var cardHtmlReversed =
+      '<div class="timeline-text"><div class="timeline-year">'+entry.year+'</div><ul class="timeline-items">'+itemsHtml+'</ul></div>'+
+      '<div class="timeline-badge"><div class="glow"></div><div class="icon">🎬</div></div>';
+
+    if (isLeft) {
+      var card = document.createElement('div');
+      card.className = 'timeline-card';
+      card.innerHTML = cardHtml;
+      sideLeft.appendChild(card);
+    } else {
+      var card2 = document.createElement('div');
+      card2.className = 'timeline-card';
+      card2.innerHTML = cardHtmlReversed;
+      sideRight.appendChild(card2);
+    }
+
+    var dot = document.createElement('div');
+    dot.className = 'timeline-dot';
+
+    row.appendChild(sideLeft);
+    row.appendChild(dot);
+    row.appendChild(sideRight);
+    timelineEl.appendChild(row);
+  });
+
+  /* ---------- EDUCATION ---------- */
+  var eduRow = document.getElementById('eduRow');
+  EDUCATION.forEach(function(edu){
+    var card = document.createElement('div');
+    card.className = 'edu-card';
+    card.innerHTML =
+      '<div class="edu-badge">'+edu.mono+'</div>'+
+      '<div class="edu-years">'+edu.years+'</div>'+
+      '<div class="edu-name">'+edu.name+'</div>'+
+      '<div class="edu-detail">'+edu.detail+'</div>';
+    eduRow.appendChild(card);
+  });
+
+  var skillsPrimaryEl = document.getElementById('skillsPrimary');
+  SKILLS_PRIMARY.forEach(function(s){
+    var pill = document.createElement('span');
+    pill.className = 'skill-pill';
+    pill.textContent = s;
+    skillsPrimaryEl.appendChild(pill);
+  });
+  var skillsSecondaryEl = document.getElementById('skillsSecondary');
+  SKILLS_SECONDARY.forEach(function(s){
+    var pill = document.createElement('span');
+    pill.className = 'skill-pill secondary';
+    pill.textContent = s;
+    skillsSecondaryEl.appendChild(pill);
+  });
+  var skillsSoftEl = document.getElementById('skillsSoft');
+  skillsSoftEl.innerHTML = SKILLS_SOFT.map(function(s){ return s; }).join('<span class="dot">·</span>');
+
+  /* ---------- GALLERY ---------- */
+  var galleryTrack = document.getElementById('galleryTrack');
+  GALLERY_RAW.forEach(function(item){
+    var cell = document.createElement('div');
+    cell.className = 'gallery-item';
+    cell.appendChild(buildMediaFrame({
+      photoSrc: item.type === 'photo' ? item.src : null,
+      videoSrc: item.type === 'video' ? item.videoSrc : null,
+      alt: item.caption,
+      placeholderText: 'Видео скоро появится'
+    }));
+    var shade = document.createElement('div');
+    shade.className = 'shade';
+    cell.appendChild(shade);
+    var cap = document.createElement('div');
+    cap.className = 'gallery-caption';
+    cap.textContent = item.caption;
+    cell.appendChild(cap);
+    galleryTrack.appendChild(cell);
+
+    if (item.type === 'video' && item.videoSrc) mediaObserver.observe(cell);
+  });
+
+  var galleryLeft = document.getElementById('galleryLeft');
+  var galleryRight = document.getElementById('galleryRight');
+  galleryLeft.addEventListener('click', function(){ galleryTrack.scrollBy({ left: -galleryTrack.clientWidth*0.6, behavior:'smooth' }); });
+  galleryRight.addEventListener('click', function(){ galleryTrack.scrollBy({ left: galleryTrack.clientWidth*0.6, behavior:'smooth' }); });
+
+  /* ---------- ABOUT ---------- */
+  var aboutClip = document.getElementById('aboutClip');
+  var aboutToggle = document.getElementById('aboutToggle');
+  var aboutExpanded = false;
+  aboutToggle.addEventListener('click', function(){
+    aboutExpanded = !aboutExpanded;
+    aboutClip.classList.toggle('expanded', aboutExpanded);
+    aboutToggle.textContent = aboutExpanded ? 'Свернуть ↑' : 'Читать полностью ↓';
+  });
+
+  /* ---------- CONTACT FORM ---------- */
+  var contactForm = document.getElementById('contactForm');
+  var contactFormWrap = document.getElementById('contactFormWrap');
+  contactForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    contactFormWrap.innerHTML = '<div class="contact-thanks">Спасибо! Сообщение получено — я отвечу вам в ближайшее время.</div>';
+  });
+
+  /* ---------- INIT ---------- */
+  renderFilters();
+  renderWorks();
+})();
+</script>
+</body>
+</html>
