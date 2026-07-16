@@ -1,1 +1,6 @@
 .playwright-mcp
+
+# Original/raw video sources too large for GitHub (100MB limit) — compressed versions are used on the site instead
+uploads/Zavtrakkusto_Balerina_clip.mp4
+uploads/HONORX9D_FINAL_HORIZONTAL_2025.mp4
+*.mp4.part
