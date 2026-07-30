@@ -133,7 +133,8 @@
 <!-- WORKS -->
 <section id="works">
   <h2>работы</h2>
-  <p class="section-sub">Нажми на работу, чтобы увидеть, какие задачи я выполняла на этом проекте</p>
+  <p class="section-sub">Нажми на проект, чтобы увидеть, что конкретно я делала</p>
+  <div class="role-toggle" id="roleToggle"></div>
   <div class="filters" id="filters"></div>
   <div class="works-grid" id="worksGrid"></div>
 </section>
@@ -150,34 +151,56 @@
 <!-- EXPERIENCE -->
 <section id="experience">
   <h2>опыт</h2>
-  <div class="timeline" id="timeline">
-    <div class="timeline-rail"></div>
+  <div class="experience-photo">
+    <svg class="timeline-wave" width="60" xmlns="http://www.w3.org/2000/svg"><path id="timelineWavePath" fill="none" stroke="var(--bg)" stroke-width="3"/></svg>
+    <div class="experience-photo-inner">
+      <div class="timeline" id="timeline">
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- EDUCATION -->
 <section id="education">
-  <h2 style="margin-bottom:56px;">образование и навыки</h2>
+  <h2 style="margin-bottom:120px;"><span class="hl-word">образование</span></h2>
   <div class="edu-row" id="eduRow"></div>
   <div class="skills-block">
-    <div>
-      <div class="skills-label">Навыки</div>
-      <div class="skills-wrap" id="skillsPrimary"></div>
+    <div class="skills-panel">
+      <div class="skills-side">
+        <h2 class="skills-title"><span class="hl-word">навыки</span></h2>
+      </div>
+      <div class="skills-grid" id="skillsPrimary"></div>
     </div>
-    <div>
-      <div class="skills-label">Дополнительно</div>
-      <div class="skills-wrap" id="skillsSecondary"></div>
-    </div>
-    <div>
-      <div class="skills-label">Личные качества</div>
-      <div class="soft-skills" id="skillsSoft"></div>
+    <div class="extra-row">
+      <div class="extra-text">
+        <div>
+          <h2 class="skills-subtitle"><span class="hl-word">а еще</span></h2>
+          <div class="skills-wrap" id="skillsSecondary"></div>
+        </div>
+        <div class="qualities-wrap">
+          <h2 class="skills-subtitle"><span class="hl-word">личные качества</span></h2>
+          <div class="soft-skills" id="skillsSoft"></div>
+          <div class="note-annotation">
+            <svg class="note-arrow" viewBox="0 0 200 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M190 8C140 4 70 16 30 40C20 46 14 50 9 54" stroke="rgba(26,24,19,0.45)" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M2 46L8 56L18 50" stroke="rgba(26,24,19,0.45)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+            <p>Вывозила смены<br>по 20 часов</p>
+          </div>
+        </div>
+      </div>
+      <div class="extra-storyboard">
+        <img src="uploads/раскадровка4.jpg" alt="Раскадровка">
+        <img src="uploads/раскадровка5.jpg" alt="Раскадровка">
+        <img src="uploads/раскадровка6.jpg" alt="Раскадровка">
+      </div>
     </div>
   </div>
 </section>
 
 <!-- GALLERY -->
 <section id="gallery">
-  <h2>галерея</h2>
+  <h2>бэкстейдж</h2>
   <div class="gallery-wrap">
     <div class="gallery-track" id="galleryTrack"></div>
     <button class="gallery-nav left" id="galleryLeft">‹</button>
@@ -256,9 +279,25 @@
   "use strict";
 
   var WORKS = [
-    { id:'ballerina', title:'Балерина', year:'2026', tags:['Клип'],
+    { id:'iskusstvo', title:'Искусство требует жертв', year:'2026', tags:['Полный метр'], roles:['writing'],
+      desc:'Написала сценарий полнометражного комедийного детектива для Всероссийского питчинга дебютантов.',
+      media:'photo', photoSrc:'uploads/кадр вечеринка.jpeg',
+      gallery:[
+        'uploads/искусство-презентация-01.png','uploads/искусство-презентация-02.png','uploads/искусство-презентация-03.png',
+        'uploads/искусство-презентация-04.png','uploads/искусство-презентация-05.png','uploads/искусство-презентация-06.png',
+        'uploads/искусство-презентация-07.png','uploads/искусство-презентация-08.png','uploads/искусство-презентация-09.png',
+        'uploads/искусство-презентация-10.png','uploads/искусство-презентация-11.png',
+      ],
+      contactLinkLabel:'Запросить текст сценария',
+      role:[
+        'Написала сценарий полнометражного комедийного детектива для Всероссийского питчинга дебютантов',
+      ]},
+    { id:'ballerina', title:'Балерина', year:'2026', tags:['Клип'], roles:['directing','writing'],
       desc:'Сняла и спродюсировала клип группы «Завтраккусто».',
       media:'video', poster:'uploads/балерина-poster.jpg', videoSrc:'uploads/балерина-preview.mp4', modalSrc:'uploads/балерина-full.mp4',
+      watchLinks:[
+        { label:'Смотреть', url:'https://youtu.be/oa3VIY_aguQ?si=ZqSt_hu3fZYsjlWc', icon:'uploads/Youtube_logo.png' },
+      ],
       role:[
         'Связалась с группой и предложила снять клип',
         'Спродюсировала весь проект',
@@ -270,9 +309,12 @@
         'Режиссировала съемки',
         'Вместе с монтажером собрала и сдала итоговый клип',
       ]},
-    { id:'honor', title:'Проверено Россией', year:'2025', tags:['Реклама'],
-      desc:'Рекламный ролик телефона HONOR с участием настоящего медведя.',
-      media:'video', views:'1,7 тыс. просмотров · YouTube', videoSrc:'uploads/медведь-preview.mp4', poster:'uploads/медведь-poster.jpg', modalSrc:'uploads/медведь-full.mp4',
+    { id:'honor', title:'Проверено Россией', year:'2025', tags:['Реклама'], roles:['directing'],
+      desc:'Сняла рекламный ролик телефона HONOR с участием настоящего медведя.',
+      media:'video', views:'2,1 тыс. просмотров', viewsIcon:'uploads/Youtube_logo.png', videoSrc:'uploads/медведь-preview.mp4', poster:'uploads/медведь-poster.jpg', modalSrc:'uploads/медведь-full.mp4',
+      watchLinks:[
+        { label:'Смотреть', url:'https://youtu.be/2LD9RAq3fbI?si=A42K9VuCC1vAFv7F', icon:'uploads/Youtube_logo.png' },
+      ],
       role:[
         'Составила смету ролика, уложившись в скромный бюджет клиента',
         'Собрала команду из оператора, гафера, фокус-пуллера, второго режиссера, монтажера и хэлперов',
@@ -280,32 +322,15 @@
         'Согласовывала с клиентом все кадры в «прямом эфире» по плейбэку',
         'На пару с монтажером собрали и согласовали с клиентом итоговый ролик',
       ]},
-    { id:'shainsky', title:'Шаинский фест', year:'2025', tags:['Концерт'],
-      desc:'Написала сценарий для финального концерта фестиваля в Кремлевском дворце.',
-      media:'video', videoSrc:'uploads/шаинский-preview.mp4', poster:'uploads/шаинский-poster.jpg', modalSrc:'uploads/шаинский-full.mp4',
+    { id:'ingushetia', title:'Вехи Ингушетии', year:'2025', tags:['Полный метр'], roles:['writing'],
+      desc:'Написала сценарий документально-игрового фильма от Минкульта Ингушетии про красоту, традиции и силу народа ингушей.',
+      media:'video', poster:'uploads/ChatGPT_Image_4__202.png.webp', videoSrc:'uploads/ингушетия-магас-preview.mp4', modalSrc:'uploads/ингушетия-магас.mp4', badge:'Золотая башня — гран-при', badgeIcon:'uploads/золотая башня фест лого.png', external:null,
+      caseLinks:[
+        { label:'Подробное описание проекта', url:'https://atlassys.tech/case-6' },
+        { label:'Смотреть новостной выпуск о проекте', url:'https://magas.tv/news/dokumentalnyi-film-vexi-ingusetii-ozidaet-prokatnogo-udostovereniia-dlia-sirokogo-pokaza' },
+      ],
       role:[
-        'Придумала последовательность выхода артистов',
-        'Написала текст для ведущего мероприятия Александра Олешко',
-        'Продумала художественную концепцию открывающего номера — «Песню крокодила Гены» исполнял Вячеслав Шаинский на фоне танцующего ансамбля',
-        'Защитила и утвердила сценарий перед режиссером Кремлевского дворца Мариной Александровной Худиной',
-        'Во время концерта помогала ведущему и следила за сценарием',
-      ]},
-    { id:'gannushkin', title:'250-летие больницы Ганнушкина', year:'2025', tags:['Полный метр'],
-      desc:'Сценарий корпоративного фильма по заказу больницы. Производство приостановлено по административным причинам.',
-      media:'video', videoSrc:'uploads/больница 2.mp4', poster:'uploads/больница 1.JPG', noPlayBtn:true,
-      role:[
-        'Создание режиссерского сценария документального фильма с игровыми элементами, инфографикой и архивными кадрами',
-        'Очная защита концепции и сценария перед главными врачами и директором больницы',
-        'Интервьюирование всех героев (врачей) во время съемок',
-        'Скаутинг локаций для фильма',
-        'Помощь второму режиссеру в составлении КПП',
-        'Режиссирование съемок на площадке',
-      ]},
-    { id:'ingushetia', title:'Вехи Ингушетии', year:'2024', tags:['Полный метр'],
-      desc:'Документально-игровой фильм от Минкульта Ингушетии про красоту, традиции и силу народа ингушей.',
-      media:'photo', photoSrc:'uploads/ингушетия 6.JPG', badge:'Золотая башня — гран-при', external:null,
-      role:[
-        'Написала сценарий фильма в таблице',
+        'Написала сценарий фильма',
         'Продумала образы каждого героя и очередность их появления',
         'Прописала вопросы каждому герою',
         'Помогала продюсеру составить КПП',
@@ -315,42 +340,80 @@
         'На пару с монтажером доработала фильм до итогового результата',
         'Ставила ТЗ на визуальные эффекты',
       ]},
-    { id:'nostalgia', title:'Ностальгия по человечеству', year:'2024', tags:['Короткий метр'],
-      desc:'Научная фантастика про раскаяние старика за ошибку детства на фоне будущего искусственного интеллекта.',
-      media:'video', badge:'ВГИК · «Святая Анна»', videoSrc:'uploads/трейлер.mp4', poster:'uploads/кадр 1.jpg',
+    { id:'shainsky', title:'Шаинский фест', year:'2025', tags:['Концерт'], tagIcon:'uploads/кремль-cropped.jpg', roles:['writing'],
+      desc:'Написала сценарий для финального концерта фестиваля в Кремлевском дворце.',
+      media:'video', videoSrc:'uploads/шаинский-preview.mp4', poster:'uploads/шаинский-poster.jpg', modalSrc:'uploads/шаинский-full.mp4',
+      watchLinks:[
+        { label:'Смотреть', url:'https://vk.ru/wall-222060062_1778', icon:'uploads/VK_Video.svg.webp' },
+      ],
       role:[
-        'Написание литературного и режиссерского сценариев',
-        'Составление сметы проекта',
-        'Полное продюсирование съемок фильма',
-        'Организация экспедиции для всей команды из Москвы в Новороссийск',
-        'Удаленный поиск части команды в Новороссийске',
-        'Режиссирование съемок',
-        'Монтаж с монтажером',
-        'Работа с VFX-художником, постановка ТЗ',
-        'Защита фильма на «отлично» как дипломного проекта во ВГИКе',
-        'Подача фильма на фестивали',
+        'Придумала последовательность выхода артистов',
+        'Написала текст для ведущего мероприятия Александра Олешко',
+        'Продумала художественную концепцию открывающего номера — «Песню крокодила Гены» исполнял Вячеслав Шаинский на фоне танцующего ансамбля',
+        'Защитила и утвердила сценарий перед режиссером Кремлевского дворца Мариной Александровной Худиной',
+        'Во время концерта помогала ведущему и следила за сценарием',
       ]},
-    { id:'formula', title:'Формула жизни', year:'2023', tags:['Документальный'],
-      desc:'Фильм-портрет про академика, учителя и участника ликвидации Чернобыльской катастрофы.',
-      media:'video', views:'1,4 тыс. просмотров · YouTube',
+    { id:'gannushkin', title:'250-летие больницы Ганнушкина', year:'2025', tags:['Полный метр'], roles:['directing','writing'],
+      desc:'Написала сценарий корпоративного фильма по заказу больницы.',
+      note:'Производство приостановлено по административным причинам.',
+      media:'video', videoSrc:'uploads/больница 2.mp4', poster:'uploads/больница 1.JPG', noPlayBtn:true,
+      mediaCaption:'Бэкстейдж со съемок интервью с врачом-психиатром',
+      role:[
+        'Создала режиссерский сценарий документального фильма с игровыми элементами, инфографикой и архивными кадрами',
+        'Очно защитила концепцию и сценарий перед главными врачами и директором больницы',
+        'Режиссировала съемки на площадке',
+        'Интервьюировала всех героев (врачей) во время съемок',
+        'Искала локации для фильма',
+        'Помогала второму режиссеру составлять КПП',
+      ]},
+    { id:'nostalgia', title:'Ностальгия по человечеству', year:'2024', tags:['Короткий метр'], roles:['directing','writing'],
+      desc:'Сняла научную фантастику про раскаяние старика за ошибку детства на фоне будущего искусственного интеллекта.',
+      media:'video', badges:[{ icon:'uploads/вгик лого феста.png' }, { icon:'uploads/святая анна фест лого.jpg' }], videoSrc:'uploads/трейлер.mp4', poster:'uploads/кадр 1.jpg',
+      watchLinks:[
+        { label:'Смотреть', url:'https://vkvideo.ru/video-230137312_456239017?list=diyxsiox2q7z6io5', icon:'uploads/VK_Video.svg.webp' },
+        { label:'Смотреть', url:'https://youtu.be/3hfR55achq0?si=0JmfoGxvrCzb4WYs', icon:'uploads/Youtube_logo.png' },
+      ],
+      role:[
+        'Написала литературный и режиссерский сценарии',
+        'Составила смету проекта',
+        'Полностью спродюсировала съемки фильма',
+        'Организовала экспедицию для всей команды из Москвы в Новороссийск',
+        'Удаленно искала часть команды в Новороссийске',
+        'Режиссировала съемки',
+        'Смонтировала фильм с монтажером',
+        'Работала с VFX-художником, ставила ТЗ',
+        'Защитила фильм на «отлично» как дипломный проект во ВГИКе',
+        'Подала фильм на фестивали',
+      ]},
+    { id:'formula', title:'Формула жизни', year:'2023', tags:['Документальный','Короткий метр'], roles:['directing','writing'],
+      desc:'Сняла фильм-портрет про академика, учителя и участника ликвидации Чернобыльской катастрофы.',
+      media:'video', views:'1,4 тыс. просмотров', viewsIcon:'uploads/Youtube_logo.png', poster:'uploads/формула жизни-poster.jpg', videoSrc:'uploads/формула жизни-preview.mp4', modalSrc:'uploads/формула жизни-preview.mp4',
+      watchLinks:[
+        { label:'Смотреть', url:'https://vkvideo.ru/video-230137312_456239021?list=nr7ukbml7bq3cuzo', icon:'uploads/VK_Video.svg.webp' },
+        { label:'Смотреть', url:'https://youtu.be/W2EpQt6REKw?si=_7X-5Ev1iJnf5X4w', icon:'uploads/Youtube_logo.png' },
+      ],
       role:[
         'Нашла контакты Николая Николаевича Острогского и договорилась с ним, родственниками, выпускниками, учениками и школой о съемках',
-        'Написание литературного и режиссерского сценариев',
-        'Режиссирование съемок с оператором',
+        'Написала литературный и режиссерский сценарии',
+        'Режиссировала съемки с оператором',
         'Самостоятельно смонтировала фильм в Adobe Pr. Pro',
-        'Защита фильма как курсовой работы во ВГИКе',
+        'Защитила фильм как курсовую работу во ВГИКе',
         'Получила множество благодарностей от мастера и учеников главного героя',
       ]},
-    { id:'malenkie', title:'Маленькие', year:'2023', tags:['Короткий метр'],
-      desc:'Комедия про взросление и общажную жизнь.',
-      media:'video', views:'14 тыс. просмотров · YouTube', poster:'uploads/маленькие кадры.JPG',
+    { id:'malenkie', title:'Маленькие', year:'2023', tags:['Короткий метр'], roles:['directing','writing'],
+      desc:'Сняла комедию про взросление и общажную жизнь.',
+      media:'video', views:'15 тыс. просмотров', viewsIcon:'uploads/Youtube_logo.png', poster:'uploads/маленькие-poster.jpg', videoSrc:'uploads/маленькие-preview.mp4', modalSrc:'uploads/маленькие-preview.mp4',
+      watchLinks:[
+        { label:'Смотреть', url:'https://vkvideo.ru/video-230137312_456239019?list=ln-FlK2bGgDUeQ5GyJf0B', icon:'uploads/VK_Video.svg.webp' },
+        { label:'Смотреть', url:'https://youtu.be/NB3xCHCTZxc?si=mNeed0v_Gjyci9fX', icon:'uploads/Youtube_logo.png' },
+      ],
       role:[
-        'Написание литературного и режиссерского сценариев',
-        'Составление сметы проекта',
+        'Написала литературный и режиссерский сценарии',
+        'Составила смету проекта',
         'Договорилась с общежитием ГИТИСа о предоставлении комнаты для съемок',
-        'Режиссура',
-        'Монтаж с монтажером',
-        'Защита фильма во ВГИКе',
+        'Режиссировала фильм',
+        'Смонтировала фильм с монтажером',
+        'Защитила фильм во ВГИКе',
       ]},
   ];
 
@@ -358,13 +421,10 @@
 
   var TIMELINE = [
     { year:'2026', items:[
-      'Прохождение сценарного курса **Анны Качаловой «Трансформация»**',
-      'Съемка клипа для группы **«Завтраккусто»**',
-      'Участница второго этапа сценарного конкурса **ArtMasters регионы**',
-      'Участница сценарного конкурса от киношколы **TheOneFilm**',
+      'Сняла клип для группы **«Завтраккусто»**',
+      'Прошла во второй этап сценарного конкурса **ArtMasters регионы**',
       'Выступала на **Вечеринке питчингов Алексея Зотова**',
-      'Участница тренинга Ивана Кудрявцева **«Идеальный питчинг»**',
-      'Сняла бэкстейдж-фильм о съемках рекламы телефона **HONOR** рекламным агентством Пикчер',
+      'Участвовала в тренинге Ивана Кудрявцева **«Идеальный питчинг»**',
     ]},
     { year:'2025', items:[
       'Сняла рекламу телефона **HONOR** с медведем',
@@ -374,8 +434,7 @@
       'Фильм **«Вехи Ингушетии»** взял главный приз фестиваля **«Золотая башня»**',
     ]},
     { year:'2024', items:[
-      'Написала сценарий полнометражного фильма **«Вехи Ингушетии»** при поддержке министерства культуры региона',
-      'Окончила **Высшие курсы ВГИК**, режиссерскую мастерскую **Ю. В. Кара**',
+      'Написала сценарий полнометражного фильма **«Вехи Ингушетии»**',
       'Сняла дипломный короткометражный фильм **«Ностальгия по человечеству»**',
       'Сняла учебную рекламу **«Добрый Cola»**',
       'Устроилась в рекламное агентство **Пикчер**',
@@ -385,21 +444,28 @@
       'Работала редактором в **Театре на Таганке**',
     ]},
     { year:'2022', items:[
-      'Поступила на **Высшие курсы ВГИК**',
-      'Окончила бакалавриат **МГУ**, факультет журналистики',
-      'Дипломная работа — короткометражный фильм-портрет про режиссера из ВГИКа',
-      'Работала сценаристом и режиссером **Института воспитания**: ролики для детей и подростков, сценарии для «Семейного часа» на **Радио Дача** и шоу «Открытые родительские собрания»',
+      'Работала сценаристом и режиссером **Института воспитания**: снимала ролики для детей и подростков',
+      'Писала сценарии для «Семейного часа» на **Радио Дача** и шоу «Открытые родительские собрания»',
     ]},
   ];
 
   var EDUCATION = [
-    { id:'edu-vgik', years:'2022 — 2024', name:'ВГИК им. С. А. Герасимова', detail:'Высшие курсы, режиссерская мастерская Ю. В. Кара', mono:'ВГИК' },
-    { id:'edu-msu', years:'2018 — 2022', name:'МГУ им. М. В. Ломоносова', detail:'Бакалавриат, факультет журналистики', mono:'МГУ' },
+    { id:'edu-vgik', years:'2022 — 2024', name:'ВГИК им. С. А. Герасимова', detail:'Высшие курсы, режиссерская мастерская Ю. В. Кара', mono:'ВГИК', logo:'uploads/вгик лого пнг.png', diploma:'uploads/Диплом ВГИК_Попова Екатерина.pdf' },
+    { id:'edu-msu', years:'2018 — 2022', name:'МГУ им. М. В. Ломоносова', detail:'Бакалавриат, факультет журналистики', mono:'МГУ', logo:'uploads/Логотип_факультета_журналистики_МГУ.png', diploma:'uploads/Диплом МГУ_Попова Екатерина.pdf' },
+    { id:'edu-scenario', years:'2026', name:'Сценарный курс Ирины Качаловой «Трансформация»', detail:'Курс по написанию полнометражного сценария под руководством профессионального сценариста', mono:'Курс', logo:'uploads/сценарная_комната-removebg-preview.png' },
   ];
 
-  var SKILLS_PRIMARY = ['Режиссура', 'Монтаж', 'Драматургия', 'Продюсирование', 'Работа с актерами', 'Режиссерская экспликация', 'Работа с кинодокументами и таблицами'];
+  var SKILLS_PRIMARY = [
+    { label:'Режиссура', proof:'Сняла 6 фильмов и собрала сплоченную творческую команду, которая переходит со мной от проекта к проекту' },
+    { label:'Монтаж', proof:'Собрала черновой монтаж полнометражного фильма «Вехи Ингушетии», затем работала на пару с монтажером в монтажной. Работаю в Adobe Pr.' },
+    { label:'Драматургия', proof:'8 завершенных проектов, один из которых — «Вехи Ингушетии» — взял главный приз на фестивале «Золотая башня»' },
+    { label:'Продюсирование', proof:'На фильме «Вехи Ингушетии» составляла КПП и организовывала съемочный процесс в горах, где нет доставок и ренталов.' },
+    { label:'Работа с актерами', proof:'Я организовывала кастинги и всегда провожу предварительную работу над каждым персонажем' },
+    { label:'Режиссерская экспликация', proof:'Многократно составляла экспликации и защищала свое видение перед клиентами.' },
+    { label:'Работа с кинодокументами и таблицами', proof:'Для съемок рекламы Honor я составила смету проекта за 2 часа и за счет этого получила одобрение своей кандидатуры от клиента из Китая.' },
+  ];
   var SKILLS_SECONDARY = ['Копирайтинг', 'Английский язык C1', 'Водительские права B', 'Презентации'];
-  var SKILLS_SOFT = ['Тайм-менеджмент', 'Коммуникация', 'Высокая ответственность', 'Работа на результат', 'Стрессоустойчивость', 'Выносливость', 'Уравновешенность'];
+  var SKILLS_SOFT = ['Тайм-менеджмент', 'Коммуникация', 'Высокая ответственность', 'Работа на результат', 'Стрессоустойчивость', 'Уравновешенность'];
 
   var GALLERY_RAW = [
     { caption:'Бэкстейдж «Вехи Ингушетии»', video:'uploads/ингушетия 10.mp4', poster:'uploads/ингушетия 10-poster.jpg' },
@@ -456,7 +522,7 @@
     { id:'experience', label:'опыт' },
     { id:'education', label:'образование' },
     { id:'about', label:'обо мне' },
-    { id:'gallery', label:'галерея' },
+    { id:'gallery', label:'бэкстейдж' },
   ];
   var navLinks = document.getElementById('navLinks');
   NAV_DEFS.forEach(function(n){
@@ -515,6 +581,54 @@
     if (!ticking) { window.requestAnimationFrame(handleScroll); ticking = true; }
   }, { passive:true });
 
+  /* ---------- TIMELINE WAVE ---------- */
+  var experiencePhoto = document.querySelector('.experience-photo');
+  var waveSvg = document.querySelector('.timeline-wave');
+  var wavePath = document.getElementById('timelineWavePath');
+  var waveMouseX = window.innerWidth / 2;
+  window.addEventListener('mousemove', function(e){ waveMouseX = e.clientX; }, { passive:true });
+  function updateTimelineWave(){
+    if (experiencePhoto && wavePath && waveSvg) {
+      var rect = experiencePhoto.getBoundingClientRect();
+      var photoHeight = rect.height;
+      var railHeight = photoHeight + 110 + 260;
+      var W = 60, centerX = W / 2;
+      var vh = window.innerHeight;
+      var curlY = Math.max(0, Math.min(photoHeight, vh / 2 - rect.top)) + 110;
+      var mouseShift = Math.max(-1, Math.min(1, (waveMouseX - window.innerWidth / 2) / (window.innerWidth / 2)));
+
+      var side = Math.sin(curlY * 0.005) >= 0 ? 1 : -1;
+      var cycles = 1 + 1.4 * (0.5 + 0.5 * Math.sin(curlY * 0.011));
+      var amplitude = (10 + 10 * (0.5 + 0.5 * Math.sin(curlY * 0.0135 + 1.3))) * side;
+      var windowWidth = 90 + 90 * (0.5 + 0.5 * Math.sin(curlY * 0.007 + 2.1));
+
+      waveSvg.setAttribute('height', railHeight);
+      waveSvg.setAttribute('viewBox', '0 0 ' + W + ' ' + railHeight);
+      var step = 10;
+      var pts = [];
+      for (var y = 0; y <= railHeight; y += step) {
+        var dist = y - curlY;
+        var x = centerX;
+        if (Math.abs(dist) < windowWidth) {
+          var win = 0.5 * (1 + Math.cos(Math.PI * dist / windowWidth));
+          var localWave = Math.sin(dist * (Math.PI * 2 * cycles) / windowWidth);
+          x = centerX + amplitude * localWave * win * (1 + mouseShift * 0.5);
+        }
+        pts.push({ x: x, y: y });
+      }
+      var d = 'M' + pts[0].x.toFixed(2) + ' ' + pts[0].y.toFixed(2) + ' ';
+      for (var i = 1; i < pts.length; i++) {
+        var midX = (pts[i - 1].x + pts[i].x) / 2;
+        var midY = (pts[i - 1].y + pts[i].y) / 2;
+        d += 'Q ' + pts[i - 1].x.toFixed(2) + ' ' + pts[i - 1].y.toFixed(2) + ' ' + midX.toFixed(2) + ' ' + midY.toFixed(2) + ' ';
+      }
+      d += 'L ' + pts[pts.length - 1].x.toFixed(2) + ' ' + pts[pts.length - 1].y.toFixed(2);
+      wavePath.setAttribute('d', d);
+    }
+    requestAnimationFrame(updateTimelineWave);
+  }
+  requestAnimationFrame(updateTimelineWave);
+
   function buildMediaFrame(opts){
     // opts: { photoSrc, videoSrc, poster, alt, placeholderText }
     var frag = document.createDocumentFragment();
@@ -554,9 +668,26 @@
   }
 
   /* ---------- WORKS ---------- */
+  var ROLE_FILTERS = [
+    { id:'directing', label:'Режиссура' },
+    { id:'writing', label:'Сценарии' },
+  ];
+  var activeRoleFilter = null;
   var activeFilter = 'Все';
+  var roleToggleEl = document.getElementById('roleToggle');
   var filtersEl = document.getElementById('filters');
   var worksGrid = document.getElementById('worksGrid');
+
+  function renderRoleToggle(){
+    roleToggleEl.innerHTML = '';
+    ROLE_FILTERS.forEach(function(r){
+      var btn = document.createElement('button');
+      btn.className = 'role-toggle-btn' + (r.id === activeRoleFilter ? ' active' : '');
+      btn.textContent = r.label;
+      btn.addEventListener('click', function(){ activeRoleFilter = (activeRoleFilter === r.id) ? null : r.id; renderRoleToggle(); renderWorks(); });
+      roleToggleEl.appendChild(btn);
+    });
+  }
 
   function renderFilters(){
     filtersEl.innerHTML = '';
@@ -571,7 +702,15 @@
 
   function renderWorks(){
     worksGrid.innerHTML = '';
-    var list = activeFilter === 'Все' ? WORKS : WORKS.filter(function(w){ return w.tags.indexOf(activeFilter) !== -1; });
+    var list = !activeRoleFilter ? WORKS.slice() : WORKS.filter(function(w){ return (w.roles || []).indexOf(activeRoleFilter) !== -1; });
+    list = activeFilter === 'Все' ? list : list.filter(function(w){ return w.tags.indexOf(activeFilter) !== -1; });
+    if (list.length === 0) {
+      var empty = document.createElement('div');
+      empty.className = 'works-empty';
+      empty.textContent = 'Пока нет такого в портфолио. Хотите, сделаем вместе?';
+      worksGrid.appendChild(empty);
+      return;
+    }
     list.forEach(function(work){
       var card = document.createElement('div');
       card.className = 'work-card';
@@ -639,18 +778,49 @@
         tag.textContent = t;
         tagsRow.appendChild(tag);
       });
+      if (work.tagIcon) {
+        var tagIconEl = document.createElement('span');
+        tagIconEl.className = 'work-tag work-tag-icon-pill';
+        var tagIconImg = document.createElement('img');
+        tagIconImg.className = 'work-tag-icon';
+        tagIconImg.src = encPath(work.tagIcon);
+        tagIconImg.alt = '';
+        tagIconEl.appendChild(tagIconImg);
+        tagsRow.appendChild(tagIconEl);
+      }
       if (work.views) {
         var vv = document.createElement('span');
         vv.className = 'work-views';
-        vv.textContent = work.views;
+        if (work.viewsIcon) {
+          vv.appendChild(document.createTextNode(work.views + ' '));
+          var vi = document.createElement('img');
+          vi.className = 'work-views-icon';
+          vi.src = encPath(work.viewsIcon);
+          vi.alt = '';
+          vv.appendChild(vi);
+        } else {
+          vv.textContent = work.views;
+        }
         tagsRow.appendChild(vv);
       }
-      if (work.badge) {
+      var badgeList = work.badges || (work.badge ? [{ text: work.badge, icon: work.badgeIcon }] : []);
+      badgeList.forEach(function(badgeItem){
         var bb = document.createElement('span');
-        bb.className = 'work-badge';
-        bb.textContent = work.badge;
+        bb.className = 'work-badge' + (badgeItem.text ? '' : ' work-badge-icon-only');
+        if (badgeItem.icon) {
+          var bi = document.createElement('img');
+          bi.className = 'work-badge-icon';
+          bi.src = encPath(badgeItem.icon);
+          bi.alt = '';
+          bb.appendChild(bi);
+        }
+        if (badgeItem.text) {
+          var bt = document.createElement('span');
+          bt.textContent = badgeItem.text;
+          bb.appendChild(bt);
+        }
         tagsRow.appendChild(bb);
-      }
+      });
       body.appendChild(tagsRow);
       var desc = document.createElement('p');
       desc.className = 'work-desc';
@@ -672,7 +842,32 @@
   function openWork(work){
     modalMedia.innerHTML = '';
     var isVideo = work.media === 'video';
-    if (isVideo && work.videoSrc) {
+    if (work.gallery && work.gallery.length) {
+      var galIndex = 0;
+      var galImg = document.createElement('img');
+      galImg.className = 'media-img media-img-contain';
+      galImg.alt = work.title;
+      var galPrev = document.createElement('button');
+      galPrev.className = 'modal-gallery-nav left';
+      galPrev.innerHTML = '‹';
+      var galNext = document.createElement('button');
+      galNext.className = 'modal-gallery-nav right';
+      galNext.innerHTML = '›';
+      var galCounter = document.createElement('div');
+      galCounter.className = 'modal-gallery-counter';
+      function setGalImg(i){
+        galIndex = (i + work.gallery.length) % work.gallery.length;
+        galImg.src = encPath(work.gallery[galIndex]);
+        galCounter.textContent = (galIndex + 1) + ' / ' + work.gallery.length;
+      }
+      galPrev.addEventListener('click', function(e){ e.stopPropagation(); setGalImg(galIndex - 1); });
+      galNext.addEventListener('click', function(e){ e.stopPropagation(); setGalImg(galIndex + 1); });
+      modalMedia.appendChild(galImg);
+      modalMedia.appendChild(galPrev);
+      modalMedia.appendChild(galNext);
+      modalMedia.appendChild(galCounter);
+      setGalImg(0);
+    } else if (isVideo && (work.videoSrc || work.modalSrc)) {
       var v = document.createElement('video');
       v.className = 'media-video';
       v.autoplay = true; v.loop = true; v.muted = true; v.controls = true; v.playsInline = true;
@@ -709,21 +904,60 @@
       a.textContent = 'Открыть сайт проекта →';
       modalMedia.appendChild(a);
     }
+    if (work.mediaCaption) {
+      var mcShade = document.createElement('div');
+      mcShade.className = 'modal-media-shade';
+      modalMedia.appendChild(mcShade);
+      var mc = document.createElement('div');
+      mc.className = 'modal-media-caption';
+      mc.textContent = work.mediaCaption;
+      modalMedia.appendChild(mc);
+    }
 
     var rolesHtml = work.role.map(function(line){ return '<li>'+line.replace(/&/g,'&amp;').replace(/</g,'&lt;')+'</li>'; }).join('');
     var tagsHtml = work.tags.map(function(t){ return '<span class="work-tag">'+t+'</span>'; }).join('');
+    var watchLinksList = work.watchLinks || (work.watchLink ? [work.watchLink] : []);
+    var watchLinkHtml = watchLinksList.map(function(wl){
+      return '<a class="modal-watch-link" href="'+wl.url+'" target="_blank" rel="noopener"><img class="modal-watch-icon" src="'+encPath(wl.icon || 'uploads/VK_Video.svg.webp')+'" alt="">'+wl.label+' →</a>';
+    }).join('');
+    var caseLinksList = work.caseLinks || (work.caseLink ? [work.caseLink] : []);
+    var caseLinkHtml = caseLinksList.map(function(cl){
+      return '<a class="modal-watch-link" href="'+cl.url+'" target="_blank" rel="noopener">'+cl.label+' →</a>';
+    }).join('');
+    var contactLinkHtml = work.contactLinkLabel ? '<a class="modal-watch-link modal-contact-link" href="#contact">'+work.contactLinkLabel+' →</a>' : '';
     modalInfo.innerHTML =
       '<div class="title">'+work.title+'</div>'+
+      watchLinkHtml+
+      contactLinkHtml+
+      caseLinkHtml+
       '<div class="year">'+work.year+'</div>'+
+      (work.note ? '<div class="modal-note">'+work.note+'</div>' : '')+
       '<div class="work-tags" style="margin-bottom:24px;">'+tagsHtml+'</div>'+
       '<div class="role-label">Моя роль</div>'+
       '<ul class="role-list">'+rolesHtml+'</ul>';
 
+    var contactLinkEl = modalInfo.querySelector('.modal-contact-link');
+    if (contactLinkEl) {
+      contactLinkEl.addEventListener('click', function(e){
+        e.preventDefault();
+        closeWork();
+        scrollToId('contact');
+      });
+    }
+
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function openDiploma(title, pdfSrc){
+    modalMedia.innerHTML = '<iframe class="modal-pdf" src="'+encPath(pdfSrc)+'" frameborder="0"></iframe>';
+    modalInfo.innerHTML = '';
+    modalBox.classList.add('diploma-mode');
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
   function closeWork(){
     modal.classList.remove('open');
+    modalBox.classList.remove('diploma-mode');
     document.body.style.overflow = '';
     modalMedia.innerHTML = '';
   }
@@ -745,11 +979,8 @@
 
     var itemsHtml = entry.items.map(function(t){ return '<li>'+parseBoldHtml(t)+'</li>'; }).join('');
     var cardHtml =
-      '<div class="timeline-badge"><div class="glow"></div><div class="icon">🎬</div></div>'+
       '<div class="timeline-text"><div class="timeline-year">'+entry.year+'</div><ul class="timeline-items">'+itemsHtml+'</ul></div>';
-    var cardHtmlReversed =
-      '<div class="timeline-text"><div class="timeline-year">'+entry.year+'</div><ul class="timeline-items">'+itemsHtml+'</ul></div>'+
-      '<div class="timeline-badge"><div class="glow"></div><div class="icon">🎬</div></div>';
+    var cardHtmlReversed = cardHtml;
 
     if (isLeft) {
       var card = document.createElement('div');
@@ -763,11 +994,7 @@
       sideRight.appendChild(card2);
     }
 
-    var dot = document.createElement('div');
-    dot.className = 'timeline-dot';
-
     row.appendChild(sideLeft);
-    row.appendChild(dot);
     row.appendChild(sideRight);
     timelineEl.appendChild(row);
   });
@@ -778,19 +1005,37 @@
     var card = document.createElement('div');
     card.className = 'edu-card';
     card.innerHTML =
-      '<div class="edu-badge">'+edu.mono+'</div>'+
+      (edu.logo ? '<img class="edu-logo" src="'+encPath(edu.logo)+'" alt="">' : '')+
+      '<div class="edu-text">'+
       '<div class="edu-years">'+edu.years+'</div>'+
-      '<div class="edu-name">'+edu.name+'</div>'+
-      '<div class="edu-detail">'+edu.detail+'</div>';
+      (edu.diploma ? '<a class="edu-name" href="#">'+edu.name+'</a>' : '<div class="edu-name">'+edu.name+'</div>')+
+      '<div class="edu-detail">'+edu.detail+'</div>'+
+      '</div>';
+    if (edu.diploma) {
+      var eduLink = card.querySelector('.edu-name');
+      eduLink.addEventListener('click', function(e){
+        e.preventDefault();
+        openDiploma(edu.name, edu.diploma);
+      });
+    }
     eduRow.appendChild(card);
   });
 
   var skillsPrimaryEl = document.getElementById('skillsPrimary');
-  SKILLS_PRIMARY.forEach(function(s){
-    var pill = document.createElement('span');
-    pill.className = 'skill-pill';
-    pill.textContent = s;
-    skillsPrimaryEl.appendChild(pill);
+  SKILLS_PRIMARY.forEach(function(s, i){
+    var card = document.createElement('div');
+    card.className = 'skill-card';
+    card.innerHTML =
+      '<div class="skill-card-inner">'+
+        '<div class="skill-card-face skill-card-front">'+
+          '<span class="skill-card-icon"></span>'+
+          '<span class="skill-card-label">'+s.label+'</span>'+
+        '</div>'+
+        '<div class="skill-card-face skill-card-back">'+
+          '<p>'+s.proof+'</p>'+
+        '</div>'+
+      '</div>';
+    skillsPrimaryEl.appendChild(card);
   });
   var skillsSecondaryEl = document.getElementById('skillsSecondary');
   SKILLS_SECONDARY.forEach(function(s){
@@ -800,7 +1045,7 @@
     skillsSecondaryEl.appendChild(pill);
   });
   var skillsSoftEl = document.getElementById('skillsSoft');
-  skillsSoftEl.innerHTML = SKILLS_SOFT.map(function(s){ return s; }).join('<span class="dot">·</span>');
+  skillsSoftEl.innerHTML = SKILLS_SOFT.map(function(s){ return '<span>'+s+'</span>'; }).join('');
 
   /* ---------- GALLERY ---------- */
   var galleryTrack = document.getElementById('galleryTrack');
@@ -910,6 +1155,7 @@
   });
 
   /* ---------- INIT ---------- */
+  renderRoleToggle();
   renderFilters();
   renderWorks();
 })();
