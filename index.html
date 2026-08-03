@@ -103,7 +103,7 @@
     <img src="uploads/раскадровка3.jpg" alt="Раскадровка">
   </div>
   <div class="hero-text">
-    <p class="hero-desc">Умею укладываться в любой <span class="underline-sketch">бюджет</span>,<br/>соблюдать <span class="underline-sketch">тайминги</span><br/>и защищать <span class="underline-sketch">идеи</span> перед клиентом</p>
+    <p class="hero-desc">Умею укладываться в любой <span class="underline-sketch">бюджет,</span><br/>соблюдать <span class="underline-sketch">тайминги</span><br/>и защищать <span class="underline-sketch">идеи</span> перед клиентом</p>
     <div class="tag-row">
       <span class="tag">кино</span>
       <span class="tag">клипы</span>
@@ -1122,6 +1122,7 @@
     card.innerHTML =
       '<div class="skill-card-inner">'+
         '<div class="skill-card-face skill-card-front">'+
+          (i === 0 ? '<span class="tap-hint">👆</span>' : '')+
           '<span class="skill-card-icon"></span>'+
           '<span class="skill-card-label">'+s.label+'</span>'+
         '</div>'+
