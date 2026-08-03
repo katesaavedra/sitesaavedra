@@ -303,6 +303,11 @@
       mobileWrap.appendChild(mobileStoryboard);
       mobileWrap.appendChild(mobileTagRow);
     }
+    var mobileAboutPhoto = document.querySelector('.about-photo-wrap');
+    var mobileAboutClip = document.getElementById('aboutClip');
+    if (mobileAboutPhoto && mobileAboutClip) {
+      mobileAboutClip.insertBefore(mobileAboutPhoto, mobileAboutClip.firstChild);
+    }
   }
 
   var WORKS = [
@@ -1122,7 +1127,7 @@
     card.innerHTML =
       '<div class="skill-card-inner">'+
         '<div class="skill-card-face skill-card-front">'+
-          (i === 0 ? '<span class="tap-hint">👆</span>' : '')+
+          (i === 0 ? '<span class="tap-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color:rgba(244,242,238,0.85);"><path d="M9 11.5V6a1.5 1.5 0 0 1 3 0v4"/><path d="M12 10V5a1.5 1.5 0 0 1 3 0v5"/><path d="M15 10.5V8a1.5 1.5 0 0 1 3 0v6c0 3.5-2 6-5.5 6h-1c-2.2 0-3.4-.7-4.5-2.3l-2.4-3.4c-.5-.7-.3-1.7.5-2.1.6-.3 1.3-.2 1.8.3L9 14.5"/></svg></span>' : '')+
           '<span class="skill-card-icon"></span>'+
           '<span class="skill-card-label">'+s.label+'</span>'+
         '</div>'+
