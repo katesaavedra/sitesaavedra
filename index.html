@@ -293,6 +293,18 @@
 (function(){
   "use strict";
 
+  if (window.matchMedia('(max-width:760px)').matches) {
+    var mobileStoryboard = document.querySelector('.stats-storyboard');
+    var mobileTagRow = document.querySelector('.tag-row');
+    if (mobileStoryboard && mobileTagRow && mobileTagRow.parentNode) {
+      var mobileWrap = document.createElement('div');
+      mobileWrap.className = 'tag-storyboard-row';
+      mobileTagRow.parentNode.insertBefore(mobileWrap, mobileTagRow);
+      mobileWrap.appendChild(mobileStoryboard);
+      mobileWrap.appendChild(mobileTagRow);
+    }
+  }
+
   var WORKS = [
     { id:'iskusstvo', title:'Искусство требует жертв', year:'2026', tags:['Полный метр'], roles:['writing'],
       desc:'Написала сценарий полнометражного комедийного детектива для Всероссийского питчинга дебютантов.',
@@ -1005,6 +1017,10 @@
     document.body.style.overflow = 'hidden';
   }
   function openDiploma(title, pdfSrc){
+    if (window.matchMedia('(max-width:760px)').matches) {
+      window.open(encPath(pdfSrc), '_blank');
+      return;
+    }
     modalMedia.innerHTML = '<iframe class="modal-pdf" src="'+encPath(pdfSrc)+'" frameborder="0"></iframe>';
     modalInfo.innerHTML = '';
     modalBox.classList.add('diploma-mode');
@@ -1259,7 +1275,14 @@
   showreelFullscreen.innerHTML = ICON_EXPAND;
   showreelFullscreen.addEventListener('click', function(){
     if (!document.fullscreenElement) {
-      (showreelSection.requestFullscreen || showreelSection.webkitRequestFullscreen).call(showreelSection);
+      if (showreelSection.requestFullscreen) {
+        showreelSection.requestFullscreen();
+      } else if (showreelSection.webkitRequestFullscreen) {
+        showreelSection.webkitRequestFullscreen();
+      } else if (showreelVideo.webkitEnterFullscreen) {
+        // iOS Safari only supports native fullscreen on the <video> element itself
+        showreelVideo.webkitEnterFullscreen();
+      }
     } else {
       (document.exitFullscreen || document.webkitExitFullscreen).call(document);
     }
