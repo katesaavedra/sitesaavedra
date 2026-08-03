@@ -212,7 +212,9 @@
 <section id="gallery">
   <h2>бэкстейдж</h2>
   <div class="gallery-wrap">
+    <button class="gallery-nav left" id="galleryNavLeft" aria-label="Прошлые фото">‹</button>
     <div class="gallery-track" id="galleryTrack"></div>
+    <button class="gallery-nav right" id="galleryNavRight" aria-label="Следующие фото">›</button>
   </div>
 </section>
 
@@ -1214,6 +1216,17 @@
   galleryTrack.addEventListener('click', function(e){
     if (galleryDragMoved) { e.preventDefault(); e.stopPropagation(); }
   }, true);
+
+  var galleryNavLeft = document.getElementById('galleryNavLeft');
+  var galleryNavRight = document.getElementById('galleryNavRight');
+  if (galleryNavLeft && galleryNavRight) {
+    galleryNavLeft.addEventListener('click', function(){
+      galleryTrack.scrollBy({ left: -galleryTrack.clientWidth * 0.85, behavior: 'smooth' });
+    });
+    galleryNavRight.addEventListener('click', function(){
+      galleryTrack.scrollBy({ left: galleryTrack.clientWidth * 0.85, behavior: 'smooth' });
+    });
+  }
 
   /* ---------- ABOUT ---------- */
   var aboutClip = document.getElementById('aboutClip');
