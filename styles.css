@@ -215,7 +215,8 @@
   .modal-box.diploma-mode .modal-info { display:none; }
   .modal-box.diploma-mode .modal-close { top:-14px; right:-54px; }
   .modal-box.photo-mode { max-width:92vw; max-height:88vh; width:auto; height:auto; overflow:visible; background:transparent; border:none; display:flex; align-items:center; justify-content:center; }
-  .modal-box.photo-mode .modal-media { position:static; flex:0 0 auto; width:auto; height:auto; min-height:0; background:transparent; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; }
+  .modal-box.photo-mode .modal-media { position:relative; flex:0 0 auto; width:auto; height:auto; min-height:0; background:transparent; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; }
+  .modal-box.photo-mode .modal-gallery-nav { top:calc(50% - 14px); }
   .lightbox-caption { font-size:13px; color:rgba(244,242,238,0.8); text-align:center; max-width:92vw; line-height:1.4; }
   .modal-box.photo-mode .modal-info { display:none; }
   .modal-box.photo-mode .modal-close { top:-14px; right:-14px; }
@@ -487,10 +488,11 @@
     .showreel-fullscreen { bottom:clamp(12px,3vh,24px); }
 
     /* EXPERIENCE / TIMELINE */
+    .experience-photo { overflow:hidden; }
     .experience-photo-inner { padding:28px 20px; }
     #experience h2 { margin-left:0; margin-right:0; }
     .timeline { margin-top:32px; padding-left:64px; position:relative; }
-    .timeline-wave { display:block; left:4px; top:20px; transform:none; }
+    .timeline-wave { display:block; left:4px; top:-80px; transform:none; }
     .timeline-row { flex-direction:column; margin-top:0 !important; margin-bottom:40px; }
     .timeline-side { flex:none; width:100%; justify-content:flex-start; }
     .timeline-side:empty { display:none; }
@@ -540,6 +542,7 @@
     }
 
     /* GALLERY */
+    #education { padding-bottom:24px; }
     #gallery h2 { margin-bottom:16px; }
     .gallery-track { padding:20px 20px 32px; }
     .gallery-item:hover { transform:none; }
@@ -558,7 +561,7 @@
 
     /* ABOUT */
     .about-flex { display:block; }
-    .about-photo-wrap { float:left; width:120px; margin:64px 16px 12px 0; }
+    .about-photo-wrap { float:left; width:120px; margin:0 16px 12px 0; }
     .about-content { text-align:right; }
     #about h2 { margin-bottom:16px !important; }
     .about-clip { max-height:none; overflow:visible; }

@@ -229,7 +229,7 @@
       <h2 style="margin-bottom:40px;">обо мне</h2>
       <div class="about-clip" id="aboutClip">
         <div class="about-text">
-          <p>В 9 лет я собрала своих школьных друзей, взяла родительскую камеру и сняла трехминутный фильм про любовь.</p>
+          <p>В 9 лет я собрала своих школьных друзей, взяла родительскую камеру и сняла трехминутный фильм.</p>
           <p>Моя самая крупная работа — полнометражный фильм про Ингушетию. Я счастлива, что не испугалась, когда после написания сценария мне предложили поехать в горы к команде из 10 парней, чтобы брать интервью у пчеловода, кузнеца, мастерицы по коврам и других местных жителей, а также руководить операторской группой.</p>
           <p>Мы вставали в 5–6 утра, ехали в горы и возвращались к 2 ночи. Но за неделю мы сняли большой и важный фильм про невероятно красивый край и сильный народ ингушей. А через несколько месяцев мы уже показывали его министру культуры, которая высоко оценила нашу работу.</p>
           <p>Также я горжусь рекламой телефона HONOR, съемки которой мы организовали буквально за 4 дня. Работать в лесу с медведем и дрессировщиком (еще понять, с кем страшнее), а потом в реальном времени согласовывать кадры с клиентом из Китая — было большим приключением, не говоря уже о том, что дикие собаки съели обед съемочной группы.</p>
@@ -400,7 +400,7 @@
       ]},
     { id:'nostalgia', title:'Ностальгия по человечеству', year:'2024', tags:['Короткий метр'], roles:['directing','writing'],
       desc:'Сняла научную фантастику про раскаяние старика за ошибку детства на фоне будущего искусственного интеллекта.',
-      media:'video', badges:[{ icon:'uploads/вгик лого феста.png' }, { icon:'uploads/святая анна фест лого.jpg' }], videoSrc:'uploads/ностальгия-preview.mp4', modalSrc:'uploads/трейлер.mp4', poster:'uploads/кадр 1.jpg',
+      media:'video', badges:[{ icon:'uploads/вгик лого пнг.png' }, { icon:'uploads/святая анна фест лого.jpg' }], videoSrc:'uploads/ностальгия-preview.mp4', modalSrc:'uploads/трейлер.mp4', poster:'uploads/кадр 1.jpg',
       watchLinks:[
         { label:'Смотреть', url:'https://vkvideo.ru/video-230137312_456239017?list=diyxsiox2q7z6io5', icon:'uploads/VK_Video.svg.webp' },
         { label:'Смотреть', url:'https://youtu.be/3hfR55achq0?si=0JmfoGxvrCzb4WYs', icon:'uploads/Youtube_logo.png' },
@@ -497,7 +497,7 @@
 
   var SKILLS_PRIMARY = [
     { label:'Режиссура', proof:'Сняла 6 фильмов и собрала сплоченную творческую команду, которая переходит со мной от проекта к проекту' },
-    { label:'Монтаж', proof:'Собрала черновой монтаж полнометражного фильма «Вехи Ингушетии», затем работала на пару с монтажером в монтажной. Работаю в Adobe Pr.' },
+    { label:'Монтаж', proof:'Собрала черновой монтаж полнометражного фильма «Вехи Ингушетии». Работаю в Adobe Pr.' },
     { label:'Драматургия', proof:'8 завершенных проектов, один из которых — «Вехи Ингушетии» — взял главный приз на фестивале «Золотая башня»' },
     { label:'Продюсирование', proof:'На фильме «Вехи Ингушетии» составляла КПП и организовывала съемочный процесс в горах, где нет доставок и ренталов.' },
     { label:'Работа с актерами', proof:'Я организовываю кастинги и всегда провожу предварительную работу над каждым персонажем' },
@@ -1039,7 +1039,7 @@
     document.body.style.overflow = '';
     modalMedia.innerHTML = '';
   }
-  function openGalleryLightbox(item){
+  function openGalleryLightbox(item, index){
     modalMedia.innerHTML = '';
     modalInfo.innerHTML = '';
     if (item.video) {
@@ -1061,6 +1061,24 @@
       lightboxCap.className = 'lightbox-caption';
       lightboxCap.textContent = item.caption;
       modalMedia.appendChild(lightboxCap);
+    }
+    if (typeof index === 'number') {
+      var lbPrev = document.createElement('button');
+      lbPrev.className = 'modal-gallery-nav left';
+      lbPrev.innerHTML = '‹';
+      lbPrev.addEventListener('click', function(e){
+        e.stopPropagation();
+        openGalleryLightbox(GALLERY_RAW[(index - 1 + GALLERY_RAW.length) % GALLERY_RAW.length], (index - 1 + GALLERY_RAW.length) % GALLERY_RAW.length);
+      });
+      var lbNext = document.createElement('button');
+      lbNext.className = 'modal-gallery-nav right';
+      lbNext.innerHTML = '›';
+      lbNext.addEventListener('click', function(e){
+        e.stopPropagation();
+        openGalleryLightbox(GALLERY_RAW[(index + 1) % GALLERY_RAW.length], (index + 1) % GALLERY_RAW.length);
+      });
+      modalMedia.appendChild(lbPrev);
+      modalMedia.appendChild(lbNext);
     }
     modalBox.classList.add('photo-mode');
     modal.classList.add('open');
@@ -1156,7 +1174,7 @@
   /* ---------- GALLERY ---------- */
   var galleryTrack = document.getElementById('galleryTrack');
   var bearTomCell = null;
-  GALLERY_RAW.forEach(function(item){
+  GALLERY_RAW.forEach(function(item, galleryIndex){
     var cell = document.createElement('div');
     cell.className = 'gallery-item';
 
@@ -1203,7 +1221,7 @@
     cap.className = 'gallery-caption';
     cap.textContent = item.caption;
     cell.appendChild(cap);
-    cell.addEventListener('click', function(){ openGalleryLightbox(item); });
+    cell.addEventListener('click', function(){ openGalleryLightbox(item, galleryIndex); });
     galleryTrack.appendChild(cell);
     if (item.video === 'uploads/медведь 5.mp4') bearTomCell = cell;
   });
