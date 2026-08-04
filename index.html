@@ -770,7 +770,10 @@
       var btn = document.createElement('button');
       btn.className = 'filter-btn' + (f === activeFilter ? ' active' : '');
       btn.textContent = f;
-      btn.addEventListener('click', function(){ activeFilter = f; renderFilters(); renderWorks(); });
+      btn.addEventListener('click', function(){
+        activeFilter = (f === activeFilter && f !== 'Все') ? 'Все' : f;
+        renderFilters(); renderWorks();
+      });
       filtersEl.appendChild(btn);
     });
   }
