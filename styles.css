@@ -405,7 +405,7 @@
 
   /* CONTACT */
   #contact { max-width:1100px; position:relative; }
-  .contact-clapper { position:absolute; top:50px; right:clamp(20px,5vw,72px); width:clamp(225px,25vw,375px); transform:rotate(9deg); pointer-events:none; }
+  .contact-clapper { position:absolute; top:220px; right:clamp(20px,5vw,72px); width:clamp(320px,34vw,520px); transform:rotate(9deg); pointer-events:none; }
   .contact-title { display:inline-block; font-family:'TT Travels Next Trial','Manrope',sans-serif; font-size:clamp(40px,6vw,80px); font-weight:400; margin:0 0 16px; transition:color 0.25s ease; }
   .contact-title:hover { color:var(--accent); }
   .contact-role { font-size:16px; color:rgba(26,24,19,0.65); margin-bottom:40px; }
@@ -413,12 +413,12 @@
   .contact-tag { font-size:12px; padding:7px 16px; border-radius:100px; border:1px solid rgba(26,24,19,0.18); color:rgba(26,24,19,0.65); }
   .contact-tag.accent { background:var(--accent-soft); border:1px solid var(--accent-border); }
   .contact-grid { display:flex; flex-wrap:wrap; gap:clamp(40px,6vw,100px); }
-  .contact-info { flex:1 1 280px; display:flex; flex-direction:column; gap:22px; }
+  .contact-info { flex:1 1 280px; max-width:420px; display:flex; flex-direction:column; gap:22px; }
   .contact-info a, .contact-info div { display:block; transition:color 0.25s ease; }
   .contact-info a:hover { color:var(--accent); }
   .contact-label { font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(26,24,19,0.5); margin-bottom:4px; }
   .contact-value { font-size:18px; }
-  .contact-form-wrap { flex:1 1 360px; }
+  .contact-form-wrap { display:none; }
   .contact-form { display:flex; flex-direction:column; gap:16px; }
   .contact-form label { font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(26,24,19,0.5); display:block; margin-bottom:8px; }
   .contact-form input, .contact-form textarea {
@@ -603,6 +603,5 @@
     #about { padding-bottom:40px; }
     #contact { padding-top:340px; }
     .contact-clapper { width:clamp(280px,72vw,360px); top:24px; right:8px; }
-    .contact-form-wrap { display:none; }
-    .contact-info { flex:1 1 100%; }
+    .contact-info { flex:1 1 100%; max-width:none; }
   }
