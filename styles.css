@@ -489,8 +489,8 @@
     .showreel-fullscreen { bottom:clamp(12px,3vh,24px); }
 
     /* WORKS */
-    .role-toggle { gap:6px; margin-bottom:16px; }
-    .role-toggle-btn { font-size:11px; padding:6px 12px; }
+    .role-toggle { gap:10px; margin-bottom:16px; }
+    .role-toggle-btn { font-size:13px; font-weight:400; padding:9px 20px; border-width:1px; border-color:rgba(26,24,19,0.2); }
     .filters-toggle {
       display:inline-flex; align-items:center; justify-content:center; background:transparent;
       border:none; padding:4px; margin-bottom:16px; cursor:pointer;
@@ -548,7 +548,7 @@
     .extra-storyboard img {
       position:static; width:calc((100% - 20px)/3); height:auto; margin:0 !important;
       top:auto !important; left:auto !important; right:auto !important; bottom:auto !important;
-      transform:none !important;
+      transform:none !important; border:none; box-shadow:none; background:none;
     }
     .qualities-wrap { margin-top:32px; }
     .note-annotation { display:none; }
