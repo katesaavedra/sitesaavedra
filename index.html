@@ -135,6 +135,10 @@
   <h2>работы</h2>
   <p class="section-sub">Нажми на проект, чтобы увидеть, что конкретно я делала</p>
   <div class="role-toggle" id="roleToggle"></div>
+  <button class="filters-toggle" id="filtersToggle" type="button">
+    <svg class="filters-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+    <span>фильтровать</span>
+  </button>
   <div class="filters" id="filters"></div>
   <div class="works-grid" id="worksGrid"></div>
 </section>
@@ -743,6 +747,12 @@
   var roleToggleEl = document.getElementById('roleToggle');
   var filtersEl = document.getElementById('filters');
   var worksGrid = document.getElementById('worksGrid');
+  var filtersToggleEl = document.getElementById('filtersToggle');
+  if (filtersToggleEl) {
+    filtersToggleEl.addEventListener('click', function(){
+      filtersEl.classList.toggle('open');
+    });
+  }
 
   function renderRoleToggle(){
     roleToggleEl.innerHTML = '';
