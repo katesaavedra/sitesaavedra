@@ -488,8 +488,8 @@
     .showreel-fullscreen { bottom:clamp(12px,3vh,24px); }
 
     /* WORKS */
-    .role-toggle { gap:8px; margin-bottom:16px; }
-    .role-toggle-btn { font-size:13px; padding:8px 16px; }
+    .role-toggle { gap:6px; margin-bottom:16px; }
+    .role-toggle-btn { font-size:11px; padding:6px 12px; }
 
     /* EXPERIENCE / TIMELINE */
     .experience-photo { overflow:hidden; }
