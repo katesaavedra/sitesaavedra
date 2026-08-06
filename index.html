@@ -37,7 +37,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260809">
+<link rel="stylesheet" href="styles.css?v=20260810">
 
 <script type="application/ld+json">
 {
@@ -1178,6 +1178,13 @@
       '</div>';
     skillsPrimaryEl.appendChild(card);
   });
+  if (window.matchMedia('(hover: none)').matches) {
+    skillsPrimaryEl.addEventListener('click', function(e){
+      var card = e.target.closest('.skill-card');
+      if (!card) return;
+      card.classList.toggle('flipped');
+    });
+  }
   var skillsSecondaryEl = document.getElementById('skillsSecondary');
   SKILLS_SECONDARY.forEach(function(s){
     var pill = document.createElement('span');

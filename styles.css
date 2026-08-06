@@ -339,8 +339,12 @@
   .skill-card .skill-card-front,
   .skill-card .skill-card-back { transition:opacity 0.4s ease, transform 0.4s ease; }
   .skill-card .skill-card-back { opacity:0; transform:scale(1.06); }
-  .skill-card:hover .skill-card-front { opacity:0; transform:scale(0.94); }
-  .skill-card:hover .skill-card-back { opacity:1; transform:scale(1); }
+  .skill-card.flipped .skill-card-front { opacity:0; transform:scale(0.94); }
+  .skill-card.flipped .skill-card-back { opacity:1; transform:scale(1); }
+  @media (hover: hover) {
+    .skill-card:hover .skill-card-front { opacity:0; transform:scale(0.94); }
+    .skill-card:hover .skill-card-back { opacity:1; transform:scale(1); }
+  }
   .soft-skills { display:grid; grid-template-columns:repeat(2, 1fr); gap:8px 24px; font-family:'Manrope',sans-serif; font-size:clamp(14px,1.3vw,17px); font-weight:500; line-height:1.6; color:var(--text); max-width:480px; }
   .soft-skills .dot { display:none; }
   .skills-subtitle { font-size:clamp(15px,2.1vw,28px); margin-bottom:16px; }
